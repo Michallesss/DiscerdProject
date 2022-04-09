@@ -1,0 +1,19 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: gray;    
+}
+
+.header {
+    background-color: red;
+    text-align: right;
+}
+
+.content {
+    background-color: green;
+}
+
+.footer {
+    background-color: blue;
+    text-align: center;
+}
