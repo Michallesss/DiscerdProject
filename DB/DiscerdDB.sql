@@ -86,7 +86,7 @@ CREATE TABLE `role_permission`
 /*servers invites*/
 CREATE TABLE `invite`
 (
-    `inviteID` INT(11) PRIMARY KEY AUTO_INCREMENT,     /*also as invite tag*/  /*prosze mi się od tego odpierolić jeśli naprawdę chcecie żeby to były jakieś jebane literki to się zrobi w js żeby się zamieniało na szesnastkowy czy coś a nie kombinujemy*/
+    `inviteID` INT(11) PRIMARY KEY AUTO_INCREMENT,     /*also as invite tag*/
     `serverID` INT(11), FOREIGN KEY(`serverID`) REFERENCES `server`(`serverID`),
     `expire_date` DATETIME,
     `create_date` DATETIME,
