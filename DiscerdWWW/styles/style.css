@@ -19,3 +19,7 @@ body {
     background-color: blue;
     text-align: center;
 }
+
+.error {
+    color: red;
+}

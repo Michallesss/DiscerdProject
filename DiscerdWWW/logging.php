@@ -1,11 +1,18 @@
 <?php
     session_start();
-    
+
     require_once "connect.php";
     $connect = @new mysqli($host, $user, $password, $database);
 
-    if((isset($_SESSION["is_logged"])) || ($_SESSION["is_logged"]==true)) {
-        header('Location:discerd.php');
+    unset($_SESSION['login_error']);
+    if(($_POST['login']=="") || ($_POST['password']=="")) {
+        $_SESSION['login_error']="fill the entire form";
+        header('Location: login.php');
+        exit();
+    }
+
+    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
+        header('Location:index.php');
         exit();
     }
     else {

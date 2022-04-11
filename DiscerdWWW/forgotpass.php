@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
+    if((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged']==true)) {
         header('Location: index.php');
         exit();
     }

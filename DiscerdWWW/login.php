@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    if((isset($_SESSION["is_logged"])) || ($_SESSION["is_logged"]==true)) {
-        header('Location:discerd .php');
+    if((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged']==true)) {
+        header('Location:index.php');
         exit();
     }
 ?>
@@ -26,10 +26,16 @@
 
 <body>
     <form action="logging.php" method="POST">
-        <input type="text" name="login"><br>
-        <input type="password" name="password"><br>
+        <input type="text" name="login" placeholder="Nick" onfocus="this.placeholder=''" onblur="this.placeholder='Nick'"><br>
+        <input type="password" name="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"><br>
+        <?php
+            if(isset($_SESSION['login_error'])) {
+                echo "<div class='error'>".$_SESSION['login_error']."</div>";
+            }
+            unset($_SESSION['login_error']);
+        ?>
         <a href="forgotpass">forgot password</a><br> <!--żeby tego nie robić zrób stronę na której pisze dla bezpieczeństa ta opcja jest nie dostępna albo po prostu ją zrób-->
-        <input type="submit"><br>
+        <input type="submit" value="Log in"><br>
     </form>
     <a href="signup.php">Sign Up</a>
 </body>
