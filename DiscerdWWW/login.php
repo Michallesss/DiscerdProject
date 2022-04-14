@@ -27,7 +27,7 @@
 
 <body>
     <div class="form">
-        <form method="POST">
+        <form action="logging.php" method="POST">
             <input type="text" name="login" placeholder="Login" onfocus="this.placeholder=''" onblur="this.placeholder='Nick'"><br>
             <input type="password" name="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"><br>
             <?php
