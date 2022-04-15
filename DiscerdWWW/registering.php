@@ -107,6 +107,7 @@
                 }
             }
             else {
+                $connect->close();
                 header('Location: signup.php');
                 exit();
             }
