@@ -1,13 +1,11 @@
 /*Discerd Copyrights*/
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-image: url('');
     margin: 0 !important;
-    padding: 0 !important;
     background-color: gray;
 }
 
-.header {
+/*.header {
     background-color: red;
     text-align: right;
 }
@@ -21,24 +19,8 @@ body {
 .footer {
     background-color: blue;
     text-align: center;
-}
+}*/
 
 .error {
     color: red;
-}
-
-a:link {
-    color: #000000;
-}
-
-a:link:hover {
-    color: #666666;
-}
-
-a:visited {
-    color: #000000;
-}
-
-a:visited:hover {
-    color: #666666;
 }

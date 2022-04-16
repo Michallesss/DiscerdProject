@@ -24,22 +24,26 @@
 
 <body>
     <div class="header">
+        <a href="index.php"><img src="imgs/transparentlogo.png"></a>
+        <ol>
         <?php
             if((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged']==true)) {
-                echo "<a href='discerd.php'><div>Open Discerd</div></a>";
+                echo "<li><a href='discerd.php'><div>Open Discerd</div></a></li>";
             }
             else {
-                echo "<a href='login.php'><div>Login</div></a>";
+                echo "<li><a href='login.php'><div>Login</div></a></li>";
             }
         ?>
+        </ol>
     </div>
 
     <div class="content">
-        content...
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit sapiente fugit, similique hic adipisci voluptatem iure ratione nesciunt quod. Nihil, voluptas porro fugiat non voluptatem eos asperiores? Maxime, provident accusantium?
     </div>
 
     <div class="footer">
-        footer
+        Discerd<br>
+        By Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
     </div>
 </body>
 

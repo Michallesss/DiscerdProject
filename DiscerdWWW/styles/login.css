@@ -1,5 +1,5 @@
 body {
-    background-image: url('../imgs/background.png') !important;
+    background-image: url('../imgs/background.png');
     font-size: 20px;
 }
 
@@ -52,17 +52,17 @@ input[type=submit]:hover {
 }
 
 a:link {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 a:link:hover {
-    color: #dddddd !important;
+    color: #dddddd;
 }
 
 a:visited {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
 a:visited:hover {
-    color: #dddddd !important;
+    color: #dddddd;
 }

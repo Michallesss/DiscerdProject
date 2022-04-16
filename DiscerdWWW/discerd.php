@@ -25,7 +25,20 @@
 </head>
 
 <body>
-    <!--here-->
+    <div class="container">
+        <div class="header">
+            <a href="index.php"><img src="imgs/transparentlogo.png"></a>
+            <ol><li><a href="logout.php">Log out</a></li></ol>
+        </div>
+        <div class="left-menu">
+            <div class="l-list-s">list of servers</div>
+            <div class="l-list-u">list of users</div>
+            <div class="account">account</div>
+        </div>
+        <div class="content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium beatae dicta earum! Sit qui perspiciatis eos obcaecati quaerat enim hic repellendus animi sed. Ab ad nemo placeat vel cumque magnam.
+        </div>
+    </div>
 </body>
 
 </html>

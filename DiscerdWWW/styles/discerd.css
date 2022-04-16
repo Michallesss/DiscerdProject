@@ -1,0 +1,78 @@
+body {
+    background-color: #000000;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 2%;
+    height: 2%;
+    float: left;
+    padding-top: 5px;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    text-align: right;
+    background-color: #0A0A0A;
+}
+
+.left-menu {
+    background-color: red;
+}
+
+.l-list-s {
+    background-color: green;
+}
+
+.l-list-u {
+    background-color: blue;
+}
+
+.content {
+    background-color: yellow;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 1% 0 1% 0;
+    font-size: small;
+    background-color: #0A0A0A;
+}
+
+ol {
+    color: white;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 18px;
+    height: auto;
+    line-height: 200%;
+    display: block;
+    display: inline-block;
+}
+
+ol > li {
+    width: auto;
+    padding-left: 10px;
+    height: 40px;
+    float: left;
+}
+
+ol > li:hover {
+    background-color: #242526;
+}
+
+ol > li:hover > a {
+    color: gray;
+}
