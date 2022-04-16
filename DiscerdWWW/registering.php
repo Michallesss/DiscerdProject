@@ -36,6 +36,9 @@
     //Nick checking:
     $nick = $_POST['rg_nick'];
     //$nick = htmlentities($nick, ENT_QUOTES, "UTF-8");
+    if($nick=="") {
+        $nick=$login;
+    }
 
 
     //Phone checking:
@@ -91,8 +94,7 @@
             }
 
             if($is_good) {
-                if($connect->query("INSERT INTO account(`accountID`, `login`, `password`, `phone`, `email`, `nickname`) VALUES(NULL, '$login', '$password', '$phone', '$email', '$nick')"))/*zamienić password na hashed_password ale trzeba zmienić liczbe liter w tabeli na więcej np.100*/ {
-                    //$_SESSION['compleat']=true;
+                if($connect->query("INSERT INTO account(`accountID`, `login`, `password`, `phone`, `email`, `nickname`) VALUES(NULL, '$login', '$hashed_password', '$phone', '$email', '$nick')")) {
                     header('Location: login.php');
                     unset($_SESSION['rg_login']);
                     unset($_SESSION['rg_nick']);
@@ -127,7 +129,7 @@
     <meta name="keywords" content="forum, social, discerd, chating, messages">
     <meta name="description" content="Discerd is global social forum for everyone!">
     <meta name="author" content="Mikael#0168">
-    <title>Discer | Registering...</title>
+    <title>Discerd | Registering...</title>
     
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="imgs/icon.ico">

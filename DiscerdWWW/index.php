@@ -1,7 +1,5 @@
 <?php
     session_start();
-    //unset($_SESSION['is_logged']);
-    //$_SESSION['is_logged']=true;
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +11,7 @@
     <meta name="keywords" content="forum, social, discerd, chating, messages">
     <meta name="description" content="Discerd is global social forum for everyone!">
     <meta name="author" content="Mikael#0168">
-    <title>Discer | Home</title>
+    <title>Discerd | Home</title>
     
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/home.css">

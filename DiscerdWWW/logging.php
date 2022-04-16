@@ -14,14 +14,14 @@
         $is_good=false;
         $_SESSION['lg_login_error']="Fill login";
     }
-    $login2 = htmlentities($login, ENT_QUOTES, "UTF-8");
+    /*$login2 = htmlentities($login, ENT_QUOTES, "UTF-8");
     if($login!=$login2) {
         $is_good=false;
         $_SESSION['lg_login_error']="Incorrect login";
     }
     else {
         $login=$login2;
-    }
+    }*/
 
     
     //Password checking:
@@ -30,7 +30,7 @@
         $is_good=false;
         $_SESSION['lg_password_error']="Fill password";
     }
-    $hashed_password=password_hash($password, PASSWORD_DEFAULT);
+    //$hashed_password=password_hash($password, PASSWORD_DEFAULT);
     
     
     //Saveing
@@ -45,49 +45,59 @@
         
         if($connect->connect_errno!=0) {
             throw new Exception(mysqli_connect_errno());
+            header('Location: index.php');
         }
         else {
             if($is_good) {
-                //... line:26 zaloguj.php
-
-                /*if ($rezultat = @$polaczenie->query(
-                    sprintf("SELECT * FROM uzytkownicy WHERE user='%s'",
-                    mysqli_real_escape_string($polaczenie,$login))))
-                    {
-                        $ilu_userow = $rezultat->num_rows;
+                if($result = $connect->query(sprintf("SELECT * FROM account WHERE login='$login'"))) {
+                        $ilu_userow = $result->num_rows;
                         if($ilu_userow>0)
                         {
-                            $wiersz = $rezultat->fetch_assoc();
+                            $account = $result->fetch_assoc();
                             
-                            if (password_verify($haslo, $wiersz['pass']))
+                            if (password_verify($password, $account['password']))
                             {
-                                $_SESSION['zalogowany'] = true;
-                                $_SESSION['id'] = $wiersz['id'];
-                                $_SESSION['user'] = $wiersz['user'];
-                                $_SESSION['drewno'] = $wiersz['drewno'];
-                                $_SESSION['kamien'] = $wiersz['kamien'];
-                                $_SESSION['zboze'] = $wiersz['zboze'];
-                                $_SESSION['email'] = $wiersz['email'];
-                                $_SESSION['dnipremium'] = $wiersz['dnipremium'];
+                                $_SESSION['is_logged'] = true;
+
+                                //Getting account info
+                                $_SESSION['accountID'] = $account['accountID'];
+                                $_SESSION['login'] = $account['login'];
+                                $_SESSION['password'] = $account['password'];
+                                $_SESSION['phone'] = $account['phone'];
+                                $_SESSION['email'] = $account['email'];
+                                $_SESSION['nick'] = $account['nickname'];
+                                $_SESSION['aboutme'] = $account['aboutme'];
+                                $_SESSION['status'] = $account['status'];
+                                $_SESSION['activity'] = $account['activity'];
+                                $_SESSION['pfp'] = $account['pfp'];
+                                $_SESSION['banner'] = $account['banner'];
                                 
-                                unset($_SESSION['blad']);
-                                $rezultat->free_result();
-                                header('Location: gra.php');
+                                unset($_SESSION['lg_login']);
+                                $result->free_result();
+                                $connect->close();
+                                header('Location: discerd.php');
+                                exit();
                             }
                             else 
                             {
-                                $_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
-                                header('Location: index.php');
+                                throw new Exception($connect->error);
                             }
                             
-                        } else {
-                            
-                            $_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
-                            header('Location: index.php');
                         }
-                    }*/
-
-                //!!!
+                        else {
+                            
+                            $_SESSION['lg_login_error'] = "<div class='error'>Incorrect login or password</div>";
+                            $connect->close();
+                            header('Location: login.php');
+                            exit();
+                        }
+                }
+                else {
+                    $_SESSION['lg_login_error'] = "<div class='error'>Incorrect login or password</div>";
+                    $connect->close();
+                    header('Location: login.php');
+                    exit();
+                }
             }
             else {
                 $connect->close();
@@ -112,7 +122,7 @@
     <meta name="keywords" content="forum, social, discerd, chating, messages">
     <meta name="description" content="Discerd is global social forum for everyone!">
     <meta name="author" content="Mikael#0168">
-    <title>Discer | Logging...</title>
+    <title>Discerd | Logging...</title>
     
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="imgs/icon.ico">
