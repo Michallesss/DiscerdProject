@@ -45,9 +45,7 @@
 
     //Password checking:
     $password = $_POST['rg_password'];
-    //$password = htmlentities($password, ENT_QUOTES, "UTF-8");
     $password2 = $_POST['rg_password2'];
-    //$password2 = htmlentities($password2, ENT_QUOTES, "UTF-8");
     if((strlen($password)<8) || (strlen($password)>20)) {
         $is_good=false;
         $_SESSION['rg_password_error']="Password must have minimaly 8 and max 20 letters";
@@ -56,7 +54,7 @@
         $is_good=false;
         $_SESSION['rg_password_error']="Fill password";
     }
-    if($password!=$password2) {
+    if(($password!=$password2) || ($password2=="")) {
         $is_good=false;
         $_SESSION['rg_password2_error']="Passwords are not the same";
     }

@@ -8,23 +8,30 @@
 
     $is_good=true;
     
+    //Login checking:
     $login=$_POST['lg_login'];
     if($login=="") {
         $is_good=false;
         $_SESSION['lg_login_error']="Fill login";
     }
+    $login2 = htmlentities($login, ENT_QUOTES, "UTF-8");
+    if($login!=$login2) {
+        $is_good=false;
+        $_SESSION['lg_login_error']="Incorrect login";
+    }
+    else {
+        $login=$login2;
+    }
+
     
+    //Password checking:
     $password=$_POST['lg_password'];
     if($password=="") {
         $is_good=false;
         $_SESSION['lg_password_error']="Fill password";
     }
-    $haslo_hash = password_hash($haslo1, PASSWORD_DEFAULT);
-    /*$password2 = htmlentities($password, ENT_QUOTES, "UTF-8");
-    if($password!=$password2) {
-        $is_good=false;
-        $_SESSION['lg_password_error']="Incorect password";
-    }*/
+    $hashed_password=password_hash($password, PASSWORD_DEFAULT);
+    
     
     //Saveing
     $_SESSION['lg_login']=$login;
@@ -40,10 +47,47 @@
             throw new Exception(mysqli_connect_errno());
         }
         else {
-            //...
-
             if($is_good) {
                 //... line:26 zaloguj.php
+
+                /*if ($rezultat = @$polaczenie->query(
+                    sprintf("SELECT * FROM uzytkownicy WHERE user='%s'",
+                    mysqli_real_escape_string($polaczenie,$login))))
+                    {
+                        $ilu_userow = $rezultat->num_rows;
+                        if($ilu_userow>0)
+                        {
+                            $wiersz = $rezultat->fetch_assoc();
+                            
+                            if (password_verify($haslo, $wiersz['pass']))
+                            {
+                                $_SESSION['zalogowany'] = true;
+                                $_SESSION['id'] = $wiersz['id'];
+                                $_SESSION['user'] = $wiersz['user'];
+                                $_SESSION['drewno'] = $wiersz['drewno'];
+                                $_SESSION['kamien'] = $wiersz['kamien'];
+                                $_SESSION['zboze'] = $wiersz['zboze'];
+                                $_SESSION['email'] = $wiersz['email'];
+                                $_SESSION['dnipremium'] = $wiersz['dnipremium'];
+                                
+                                unset($_SESSION['blad']);
+                                $rezultat->free_result();
+                                header('Location: gra.php');
+                            }
+                            else 
+                            {
+                                $_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
+                                header('Location: index.php');
+                            }
+                            
+                        } else {
+                            
+                            $_SESSION['blad'] = '<span style="color:red">Nieprawidłowy login lub hasło!</span>';
+                            header('Location: index.php');
+                        }
+                    }*/
+
+                //!!!
             }
             else {
                 $connect->close();

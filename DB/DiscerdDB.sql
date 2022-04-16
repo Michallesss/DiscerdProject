@@ -9,7 +9,7 @@ CREATE TABLE `account`
 (
     `accountID` INT(11) PRIMARY KEY AUTO_INCREMENT,    /*using also as user tag*/
     `login` VARCHAR(30),
-    `password` VARCHAR(30),
+    `password` VARCHAR(100),
     `phone` INT(9),                                     /*phone number*/
     `email` VARCHAR(30),                                /*email adress*/
     `nickname` VARCHAR(30),                             /*difrent between nickname and login is that nickname displays on ur profil and can be repetitive whereas, login is using to log in*/
