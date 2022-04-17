@@ -5,6 +5,20 @@
         header('Location: index.php');
         exit();
     }
+
+    require_once "connect.php";
+    mysqli_report(MYSQLI_REPORT_STRICT);
+
+    try {
+        $connect = @new mysqli($host, $user, $pass, $database);
+
+        if($connect->connect_errno!=0) {
+            throw new Exception(mysqli_connect_errno());
+        }
+        else {
+            //here... query to db
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +45,11 @@
             <ol><li><a href="logout.php">Log out</a></li></ol>
         </div>
         <div class="left-menu">
-            <div class="l-list-s">list of servers</div>
+            <div class="l-list-s">
+                <?php
+
+                ?>
+            </div>
             <div class="l-list-u">list of users</div>
             <div class="account">account</div>
         </div>

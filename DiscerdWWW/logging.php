@@ -50,8 +50,8 @@
         else {
             if($is_good) {
                 if($result = $connect->query(sprintf("SELECT * FROM account WHERE login='$login'"))) {
-                        $ilu_userow = $result->num_rows;
-                        if($ilu_userow>0)
+                        $how_many = $result->num_rows;
+                        if($how_many>0)
                         {
                             $account = $result->fetch_assoc();
                             
@@ -60,17 +60,17 @@
                                 $_SESSION['is_logged'] = true;
 
                                 //Getting account info
-                                $_SESSION['accountID'] = $account['accountID'];
-                                $_SESSION['login'] = $account['login'];
-                                $_SESSION['password'] = $account['password'];
-                                $_SESSION['phone'] = $account['phone'];
-                                $_SESSION['email'] = $account['email'];
-                                $_SESSION['nick'] = $account['nickname'];
-                                $_SESSION['aboutme'] = $account['aboutme'];
-                                $_SESSION['status'] = $account['status'];
-                                $_SESSION['activity'] = $account['activity'];
-                                $_SESSION['pfp'] = $account['pfp'];
-                                $_SESSION['banner'] = $account['banner'];
+                                $_SESSION['account_accountID'] = $account['accountID'];
+                                $_SESSION['account_login'] = $account['login'];
+                                $_SESSION['account_password'] = $account['password'];
+                                $_SESSION['account_phone'] = $account['phone'];
+                                $_SESSION['account_email'] = $account['email'];
+                                $_SESSION['account_nick'] = $account['nickname'];
+                                $_SESSION['account_aboutme'] = $account['aboutme'];
+                                $_SESSION['account_status'] = $account['status'];
+                                $_SESSION['account_activity'] = $account['activity'];
+                                $_SESSION['account_pfp'] = $account['pfp'];
+                                $_SESSION['account_banner'] = $account['banner'];
                                 
                                 unset($_SESSION['lg_login']);
                                 $result->free_result();
