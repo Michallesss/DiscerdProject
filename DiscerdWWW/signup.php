@@ -57,7 +57,7 @@
                     unset($_SESSION['rg_password_error']);
                 }?>
             <!--====-->
-            <input type="password" name="rg_password2" placeholder="Repeat Password*" onfocus="this.placeholder=''" onblur="this.placeholder='Repeat Password*'">
+            <input type="password" name="rg_password2" placeholder="Repeat Password*" onfocus="this.placeholder=''" onblur="this.placeholder='Repeat Password*'"><br>
             <?php 
                 if(isset($_SESSION['rg_password2_error'])) {
                     echo "<div class='error'>".$_SESSION['rg_password2_error']."</div>";

@@ -15,7 +15,7 @@ CREATE TABLE `account`
     `nickname` VARCHAR(30),                             /*difrent between nickname and login is that nickname displays on ur profil and can be repetitive whereas, login is using to log in*/
     `aboutme` VARCHAR(150),                             /*biography*/
     `status` VARCHAR(30),                               /*status message*/
-    `activity` INT(1),                                  /*1-Online, 2-Do not distrub, 3-IDle, 4-Offline*/
+    `activity` INT(1),                                  /*0-Offline, 1-Online, 2-Do not distrub, 3-IDle*/
     `pfp` BLOB,                                         /*profile picture*/
     `banner` BLOB                                       /*profile banner*/
 );

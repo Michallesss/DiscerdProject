@@ -19,6 +19,10 @@
             //here... query to db
         }
     }
+    catch (Exception $e) {
+        echo "<i>Error:</i>";
+        echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+    }
 ?>
 
 <!DOCTYPE html>

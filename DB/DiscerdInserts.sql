@@ -1,7 +1,9 @@
 USE `DiscerdDB`;
 
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
-VALUES (NULL, 'Mikael', 'admin', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', null, null);
+VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
+VALUES (NULL, 'Mikael', 'admin', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', NULL, NULL);
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
 VALUES (NULL, 'Szymon', 'admin', '987654321', 'szymonk@discerd.pl', 'dhorbon', 'tak jak pan jezus powiedział', 'programming...', '2', NULL, NULL);
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
