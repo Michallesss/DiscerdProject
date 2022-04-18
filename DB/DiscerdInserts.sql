@@ -1,13 +1,13 @@
 USE `DiscerdDB`;
 
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
-VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', NULL, NULL, NULL, NULL, NULL, NULL);
+VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', NULL, NULL, NULL, NULL, NULL, NULL); /*admin, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
-VALUES (NULL, 'Mikael', 'admin', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', NULL, NULL);
+VALUES (NULL, 'Mikael', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', NULL, NULL); /*Miakel, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
-VALUES (NULL, 'Szymon', 'admin', '987654321', 'szymonk@discerd.pl', 'dhorbon', 'tak jak pan jezus powiedział', 'programming...', '2', NULL, NULL);
+VALUES (NULL, 'Szymon', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '987654321', 'szymonk@discerd.pl', 'dhorbon', 'tak jak pan jezus powiedział', 'programming...', '2', NULL, NULL); /*Szymon, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
-VALUES (NULL, 'maciekcieslak', 'maciuskox', '519643782', 'promaciek@wp.pl', 'dzikimacius', 'kocham pana szczepanika', 'hej bejb', NULL, NULL, NULL);
+VALUES (NULL, 'maciekcieslak', '$2y$10$Ivl8Oit62yRcDIO7q0TF9eD8KKoEvPcNBTQiziYA4CegDC/aiDEc2', '519643782', 'promaciek@wp.pl', 'dzikimacius', 'kocham pana szczepanika', 'hej bejb', NULL, NULL, NULL); /*maciekcielak, maciuskox*/
 
 INSERT INTO `group` (`groupID`, `group_name`, `group_icon`)
 VALUES (NULL, 'friends', NULL);

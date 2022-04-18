@@ -21,6 +21,10 @@
             JOIN server_group_account ON server.serverID=server_group_account.serverID
             JOIN account ON server_group_account.accountID=account.accountID
             WHERE account.accountID='$accountID'");
+
+            if(!$result) {
+                throw new Exception($connect->error);
+            }
         }
     }
     catch(Exception $e) {
@@ -36,7 +40,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discerd</title>
+    <title>Discerd | Create invite</title>
     
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/login.css">
@@ -49,7 +53,7 @@
 
 <body>
     <div class="form">
-        <form action="invite.php" method="get">
+        <form method="get">
             <label for="serverID">Server:</label>
             <select name="serverID" id="serverID">
                 <?php 
@@ -63,9 +67,7 @@
             <input type="text" name="message" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'">
             Click create and copy the link
             <input type="submit" value="create invite">
-            <?php 
-                echo "";
-            ?>
+            <a href="index.php" style="float: left;">Back</a>
         </form>
     </div>
 </body>
