@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
+        header('Location: index.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +27,6 @@
 <body>
     <?php
         echo "<div class='form'>";
-        session_start();
 
         if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
             header('Location: index.php');

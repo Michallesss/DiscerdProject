@@ -22,5 +22,9 @@ body {
 }*/
 
 .error {
-    color: red;
+    color: #ff0000;
+}
+
+.info {
+    color: #17e817;
 }

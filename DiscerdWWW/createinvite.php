@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
+        header('Location: index.php');
+        exit();
+    }
+
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
 
