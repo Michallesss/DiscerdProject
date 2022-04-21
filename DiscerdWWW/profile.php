@@ -33,7 +33,7 @@
     <title>Discer | Profile</title>
     
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/discerd.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" href="imgs/icon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,28 +42,30 @@
 </head>
 
 <body>
-    <?php
-        echo $nick."<i>#".$id."</i><br>";
-        switch($activity) {
-            case 0:
-                echo "<span style='color: gray;'>Offline</span>";
-                break;
-            case 1:
-                echo "<span style='color: green;'>Online</span>";
-                break;
-            case 2:
-                echo "<span style='color: red;'>Do not distrub</span>";
-                break;
-            case 3:
-                echo "<span style='color: yellow;'>IDLe</span>";
-                break;
-            default:
-                echo "<span style='color: gray;'>Offline</span>";
-        }
-        echo $status;
-        echo $aboutme;
-        //echo $pfp.$banner;
-    ?>
+    <div class="form">
+        <div class="banner">
+            <style>
+                .banner {
+                    background-image: url('');
+                    border-radius: 15px; /*change to %*/
+                    width: 25%; /*probably not to change*/
+                    height: 5%; /*probably to change*/
+                }
+            </style>
+        <div>
+        <div class="pfp">
+            <style>
+                .banner {
+                    background-image: url('');
+                    border-radius: 100%;
+                    width: 2%; /*probably to change*/
+                    height: 2%; /*probably to change*/
+                }
+            </style>
+        </div>
+
+        <a href="index.php" style="float: left;">Back</a>
+    </div>
 </body>
 
 </html>
