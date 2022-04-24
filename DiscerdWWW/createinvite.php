@@ -58,7 +58,7 @@
 
 <body>
     <div class="form">
-        <form method="get">
+        <form method="get" action="invite.php">
             <label for="serverID">Server:</label>
             <select name="serverID" id="serverID">
                 <?php 

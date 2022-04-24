@@ -55,8 +55,7 @@
                         {
                             $account = $result->fetch_assoc();
                             
-                            if (password_verify($password, $account['password']))
-                            {
+                            if(password_verify($password, $account['password'])) {
                                 $_SESSION['is_logged'] = true;
 
                                 //Getting account info
@@ -78,11 +77,11 @@
                                 header('Location: discerd.php');
                                 exit();
                             }
-                            else 
-                            {
-                                throw new Exception($connect->error);
+                            else {
+                                $_SESSION['lg_password_error']="Incorrect password";
+                                header('Location: login.php');
+                                exit();
                             }
-                            
                         }
                         else {
                             

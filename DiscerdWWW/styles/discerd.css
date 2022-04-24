@@ -57,7 +57,7 @@ ol {
     font-size: 18px;
     height: auto;
     line-height: 200%;
-    display: block;
+    /*display: block;*/
     display: inline-block;
 }
 
