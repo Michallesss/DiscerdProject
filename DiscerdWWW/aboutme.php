@@ -42,7 +42,7 @@
         </form>
     </div>
     <div class="form">
-        <form action="changing.php" method="post">
+        <form action="" method="post">
             Informations
             <input type="nick" name="pf_nick"  value="" placeholder="New Nickname" onfocus="this.placeholder=''" onblur="this.placeholder='New Nickname'">
             <input type="tel" name="pf_phone" value="" placeholder="New Phone number" onfocus="this.placeholder=''" onblur="this.placeholder='New Phone number'">

@@ -16,8 +16,8 @@ CREATE TABLE `account`
     `aboutme` VARCHAR(150),                             /*biography*/
     `status` VARCHAR(30),                               /*status message*/
     `activity` INT(1),                                  /*0-Offline, 1-Online, 2-Do not distrub, 3-IDle*/
-    `pfp` BLOB,                                         /*profile picture*/
-    `banner` BLOB                                       /*profile banner*/
+    `pfp` VARCHAR(30),                                  /*profile picture*/
+    `banner` VARCHAR(30)                                /*profile banner*/
 );
 
 /*table for making group chats*/
@@ -25,7 +25,7 @@ CREATE TABLE `group`
 (
     `groupID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `group_name` VARCHAR(50),                           
-    `group_icon` BLOB                                   /*custom group icon/picture*/
+    `group_icon` VARCHAR(30)                                   /*custom group icon/picture*/
 );
 
 /*friendships and friends invites*/
@@ -33,8 +33,8 @@ CREATE TABLE `friendship`/*account_account*/
 (
     `friendshipID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `senderID` INT(11), FOREIGN KEY (`senderID`) REFERENCES `account`(`accountID`),                             /*who invited*/
-    `reciverID` INT(11), FOREIGN KEY (`reciverID`) REFERENCES `account`(`accountID`),                             /*who's invited*/
-    `status` INT(1)                                                                                                    /*0-reqested 1-accepted 2-rejected 3-unfriended 4-blocked*/
+    `reciverID` INT(11), FOREIGN KEY (`reciverID`) REFERENCES `account`(`accountID`),                           /*who's invited*/
+    `status` INT(1)                                                                                             /*0-reqested 1-accepted 2-rejected 3-unfriended 4-blocked*/
 );
 
 /*permission names and values*/
@@ -51,7 +51,7 @@ CREATE TABLE `server`
 (
     `serverID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `server_name` VARCHAR(50),
-    `server_icon` BLOB,
+    `server_icon` VARCHAR(30),
     `is_public` BOOLEAN DEFAULT FALSE                                  /*is server public*/
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE `emoji_sticker`
 (
     `emoji_stickerID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(25),
-    `picture` BLOB NOT NULL,
+    `picture` VARCHAR(30) NOT NULL,
     `type` INT(1), /*1-emoji, 2-sticker*/
     `serverID` INT(11), FOREIGN KEY(`serverID`) REFERENCES `server`(`serverID`)
 );
@@ -135,7 +135,7 @@ CREATE TABLE `message`
     `senderID` INT(11),                    FOREIGN KEY (`senderID`) REFERENCES `account`(`accountID`),                              /*from who*/
     `recipientID` INT(11) DEFAULT NULL,    FOREIGN KEY (`recipientID`) REFERENCES `account`(`accountID`),                           /*to who*/
     `groupID` INT(11) DEFAULT NULL,        FOREIGN KEY (`groupID`) REFERENCES `group`(`groupID`),                                   /*where (if group)*/
-    `channelID` INT(11) DEFAULT NULL,      FOREIGN KEY (`channelID`) REFERENCES `channel`(`channelID`),                       /*where (if server channel)*/
+    `channelID` INT(11) DEFAULT NULL,      FOREIGN KEY (`channelID`) REFERENCES `channel`(`channelID`),                             /*where (if server channel)*/
     `message_date` DATETIME,
     `content` VARCHAR(512)
 );

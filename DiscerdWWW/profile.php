@@ -72,32 +72,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        .banner {
+            background-image: url('imgs/icon.ico');
+            background-size: cover;
+            min-width: 25%;
+            width: 25%;
+            max-width: 25%;
+        }
+
+        .pfp {
+            background-image: url('imgs/icon.ico');
+            background-size: cover;
+            min-width: 5%;
+            width: 5%;
+            max-width: 5%;
+        }
+    </style>
 </head>
 
 <body>
     <div class="form">
-        <div class="banner">
-            <style>
-                .banner {
-                    background-image: url('');
-                    background-color: black;
-                    border-radius: 15px; /*change to %*/
-                    width: 25%; /*probably not to change*/
-                    height: 5%; /*probably to change*/
-                }
-            </style>
-        <div>
-        <div class="pfp">
-            <style>
-                .pfp {
-                    background-image: url('');
-                    background-color: black;
-                    border-radius: 100%;
-                    width: 2%; /*probably to change*/
-                    height: 2%; /*probably to change*/
-                }
-            </style>
-        </div>
+        <div class="banner"></div>
+        <div class="pfp"></div>
         <?php
             if(isset($pf_error)) {
                 echo "<div class='error'>".$pf_error."</div>";

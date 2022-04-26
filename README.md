@@ -8,9 +8,9 @@ To Do List:
 aboutme
 changepass
 delete
-discerd
+discerd(css)
 forgotpass
-profile
+profile(css)
 chat
 group
 server*/

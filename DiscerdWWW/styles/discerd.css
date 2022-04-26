@@ -26,19 +26,26 @@ img {
 }
 
 .left-menu {
-    background-color: red;
+    float: left;
 }
 
 .l-list-s {
-    background-color: green;
+    background-color: #18191A;
+    float: left;
 }
 
 .l-list-u {
-    background-color: blue;
+    background-color: #212121;
+    float: right;
+}
+
+.account {
+    background-color: #0A0A0A;
 }
 
 .content {
-    background-color: yellow;
+    background-color: #3A3B3C;
+    padding: 1%;
 }
 
 .footer {
@@ -47,6 +54,11 @@ img {
     padding: 1% 0 1% 0;
     font-size: small;
     background-color: #0A0A0A;
+}
+
+ul {
+    list-style-type: none;
+    padding: 5%;
 }
 
 ol {
@@ -69,7 +81,7 @@ ol > li {
 }
 
 ol > li:hover {
-    background-color: #242526;
+    background-color: #0A0A0A;
 }
 
 ol > li:hover > a {

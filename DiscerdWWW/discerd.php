@@ -43,7 +43,11 @@
     <div class="container">
         <div class="header">
             <a href="index.php"><img src="imgs/transparentlogo.png"></a>
-            <ol><li><a href="logout.php">Log out</a></li></ol>
+            <ol>
+                <li><a href="search.php">Search</a></li>
+                <li><a href="createrequest.php">Add Friend</a></li>
+                <li><a href="logout.php">Log out</a></li>
+            </ol>
         </div>
         <div class="left-menu">
             <div class="l-list-s">
@@ -51,22 +55,14 @@
                     $id=$_SESSION['account_accountID'];
                     try{
                         echo "<ul>";
-                        if($result = $connect->query(sprintf("SELECT accountID, nickname, 'status', activity, pfp FROM account
-                        JOIN friendship ON account.accountID=friendship.senderID
-                        WHERE friendship.reciverID='$id'"))) { 
-                            while($row=$result->fetch_assoc()) {
-                                echo "<li>";
-                                echo "<a href='group.php?id=".$row['accountID']."'>".$row['nickname']."</a>";
-                                echo "</li>";
-                            }
-                        }
-                        else {
-                            throw new Exception($connect->error);
-                        }
-
-                        if($result = $connect->query(sprintf("SELECT accountID, nickname, 'status', activity, pfp FROM account
+                        if($result = $connect->query(sprintf("SELECT * FROM account
                         JOIN friendship ON account.accountID=friendship.reciverID
-                        WHERE friendship.senderID='$id'"))) {
+                        WHERE friendship.senderID='$id'
+                        UNION
+                        SELECT * FROM account
+                        JOIN friendship ON account.accountID=friendship.senderID
+                        WHERE friendship.reciverID='$id'
+                        ORDER BY nickname"))) {
                             while($row=$result->fetch_assoc()) {
                                 echo "<li>";
                                 echo "<a href='group.php?id=".$row['accountID']."'>".$row['nickname']."</a>";
@@ -99,7 +95,7 @@
             </div>
             <div class="l-list-u">
                 <?php //list of users
-                    try{
+                    try {
                         if($result = $connect->query(sprintf("SELECT server.serverID, server.server_name, server.server_icon FROM server
                         JOIN server_group_account ON server.serverID=server_group_account.serverID
                         WHERE server_group_account.accountID='$id';"))) {
@@ -129,14 +125,73 @@
                     $activity = $_SESSION['account_activity'];
                     $pfp = $_SESSION['account_pfp'];
                     $banner = $_SESSION['account_banner'];
-                    echo "<a href='profile.php'>".$nick."#".$id."<br>".$status.$activity.$pfp.$banner."</a>";
+                    
+                    switch($activity) {
+                        case 0:
+                            $activity="<span style='color: gray;'>Offline</span>";
+                            break;
+                        case 1:
+                            $activity="<span style='color: green;'>Online</span>";
+                            break;
+                        case 2:
+                            $activity="<span style='color: red;'>Do not distrub</span>";
+                            break;
+                        case 3:
+                            $activity="<span style='color: yellow;'>IDLE</span>";
+                            break;
+                        default:
+                            $activity="<span style='color: gray;'>Offline</span>";
+                            break;
+                    }
+
+                    echo "<a href='profile.php'>".$nick."#".$id."</a><br>".$activity." ".$status;
                 ?>
             </div>
         </div>
         <div class="content">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium beatae dicta earum! Sit qui perspiciatis eos obcaecati quaerat enim hic repellendus animi sed. Ab ad nemo placeat vel cumque magnam.
+            <?php 
+                if($result = $connect->query(sprintf("SELECT * FROM account
+                JOIN friendship ON account.accountID=friendship.reciverID
+                WHERE friendship.senderID=1
+                UNION
+                SELECT * FROM account
+                JOIN friendship ON account.accountID=friendship.senderID
+                WHERE friendship.reciverID=1"))) {
+                    switch($row['activity']) {
+                        case 0:
+                            $row['activity']="<span style='color: gray;'>Offline</span>";
+                            break;
+                        case 1:
+                            $row['activity']="<span style='color: green;'>Online</span>";
+                            break;
+                        case 2:
+                            $row['activity']="<span style='color: red;'>Do not distrub</span>";
+                            break;
+                        case 3:
+                            $row['activity']="<span style='color: yellow;'>IDLE</span>";
+                            break;
+                        default:
+                        $row['activity']="<span style='color: gray;'>Offline</span>";
+                            break;
+                    }
+                    echo "<ul>";
+                    while($row=$result->fetch_assoc()) {
+                        echo "<li>";
+                        echo "<a href='group.php?id=".$row['accountID']."'>".$row['nickname']."</a><br>";
+                        echo $row['activity']." ".$row['status'];
+                        echo "</li>";
+                    }
+                    echo "</ul>";
+                }
+                else {
+                    throw new Exception($connect->error);
+                }
+            ?>
         </div>
     </div>
 </body>
 
 </html>
+<?php
+    $connect->close();
+?>

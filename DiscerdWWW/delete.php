@@ -35,6 +35,7 @@
                 }
 
                 if($is_good) {
+                    //Usuwanie reszty relacji
                     if($result = $connect->query(sprintf("DELETE FROM account WHERE accountID='$id'"))) { //ŻEBY TO DZIAŁAŁO MUSIMY JESZCZE USUWAĆ WSZYSTKIE RELACJE BRUHHHHHH
                         $dl_info="Your account was deleted";
                         unset($_SESSION['is_logged']);
