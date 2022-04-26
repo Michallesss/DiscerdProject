@@ -1,16 +1,27 @@
 # DiscerdProject
+# Version: pre-alpha
 
 Discerd Project
 Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 
 To Do List:
--Files:/*
-aboutme
-changepass
-delete
-discerd(css)
-forgotpass
-profile(css)
-chat
-group
-server*/
+aboutme (to do)
+chat (to do)
+connect
+create invite (css)
+create request (css)
+delete (to do)
+discerd (css)
+forgotpass (to do)
+group (to do)
+index (css)
+invite
+logging
+login (css)
+logout
+profile (to do)
+registering
+search (css)
+server (to do)
+signup (css)
+upload (to do)
