@@ -13,7 +13,7 @@
             $is_good=false;
         }
         else {
-            $search=$_POST['search'];
+            $search= "%".$_POST['search']."%";
             $is_good=true;
         }
     }

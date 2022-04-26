@@ -6,7 +6,7 @@ Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 
 To Do List:
 aboutme (to do)
-chat (to do)
+chat (to do) (zmodyfikować wyświetlanie i insertowanie daty)
 connect
 create invite (css)
 create request (css)
