@@ -5,13 +5,16 @@ Discerd Project<br>
 Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 
 ## Files
+#### DiscerdDB
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DB/DiscerdDB.sql">```DiscerdProject/DiscerdDB/DiscerdDB.sql```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DB/DiscerdInserts.sql">```DiscerdProject/DiscerdDB/DiscerdInserts.sql```</a><br>
+#### DiscerdWWW/..
 #### imgs/..
 <a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/imgs">```DiscerdProject/DiscerdWWW/imgs/..```</a><br>
 Folder with website images<br>
 #### styles/..
 <a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/styles">```DiscerdProject/DiscerdWWW/styles/..```</a><br>
 Folder with website stylesheets<br>
-#### DiscerdWWW/..
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/aboutme.php">```DiscerdProject/DiscerdWWW/aboutme.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/changepass.php">```DiscerdProject/DiscerdWWW/changepass.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/chat.php">```DiscerdProject/DiscerdWWW/chat.php```</a><br>
@@ -19,6 +22,7 @@ Folder with website stylesheets<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/createinvite.php">```DiscerdProject/DiscerdWWW/createinvite.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/createrequest.php">```DiscerdProject/DiscerdWWW/createrequest.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/delete.php">```DiscerdProject/DiscerdWWW/delete.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/deletemessage.php">```DiscerdProject/DiscerdWWW/deletemessage.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/discerd.php">```DiscerdProject/DiscerdWWW/discerd.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/forgotpass.php">```DiscerdProject/DiscerdWWW/forgotpass.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/group.php">```DiscerdProject/DiscerdWWW/group.php```</a><br>
