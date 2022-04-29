@@ -5,7 +5,7 @@ Discerd Project<br>
 Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 
 ## Files
-#### DiscerdDB
+#### DiscerdDB/..
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DB/DiscerdDB.sql">```DiscerdProject/DiscerdDB/DiscerdDB.sql```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DB/DiscerdInserts.sql">```DiscerdProject/DiscerdDB/DiscerdInserts.sql```</a><br>
 #### DiscerdWWW/..
@@ -15,7 +15,7 @@ Folder with website images<br>
 #### styles/..
 <a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/styles">```DiscerdProject/DiscerdWWW/styles/..```</a><br>
 Folder with website stylesheets<br>
-### other/..
+#### other/..
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/aboutme.php">```DiscerdProject/DiscerdWWW/aboutme.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/changepass.php">```DiscerdProject/DiscerdWWW/changepass.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/chat.php">```DiscerdProject/DiscerdWWW/chat.php```</a><br>
