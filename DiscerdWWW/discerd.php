@@ -57,11 +57,11 @@
                         echo "<ul>";
                         if($result = $connect->query(sprintf("SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`pfp`, `account`.`banner` FROM account
                         JOIN friendship ON account.accountID=friendship.reciverID
-                        WHERE friendship.senderID='$id'
+                        WHERE friendship.senderID='$id' AND friendship.status=1
                         UNION
                         SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`pfp`, `account`.`banner` FROM account
                         JOIN friendship ON account.accountID=friendship.senderID
-                        WHERE friendship.reciverID='$id'
+                        WHERE friendship.reciverID='$id' AND friendship.status=1
                         ORDER BY nickname"))) {
                             while($row=$result->fetch_assoc()) {
                                 echo "<li>";
@@ -152,11 +152,11 @@
             <?php 
                 if($result = $connect->query(sprintf("SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`pfp` FROM account
                 JOIN friendship ON account.accountID=friendship.reciverID
-                WHERE friendship.senderID='$id' AND account.activity>0
+                WHERE friendship.senderID='$id' AND account.activity>0 AND friendship.status=1
                 UNION
                 SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`pfp` FROM account
                 JOIN friendship ON account.accountID=friendship.senderID
-                WHERE friendship.reciverID='$id' AND account.activity>0
+                WHERE friendship.reciverID='$id' AND account.activity>0 AND friendship.status=1
                 ORDER BY nickname;"))) {
                     echo "<ul>";
                     while($row=$result->fetch_assoc()) {

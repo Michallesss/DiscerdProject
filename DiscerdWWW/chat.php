@@ -1,6 +1,5 @@
 <?php 
     session_start();
-
     if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
         header('Location: index.php');
         exit();
@@ -25,29 +24,37 @@
         }
 
         if($result=$connect->query(sprintf("SELECT account.`nickname`, account.`status`, account.`activity`, account.`pfp`, account.`banner` FROM account WHERE accountID='$id'"))) {
-            $row=$result->fetch_assoc();
-
-            //$id
-            $nick=$row['nickname'];
-            $status=$row['status'];
-            $activity=$row['activity'];
-            $pfp=$row['pfp'];
-            $banner=$row['banner'];
+            $how_many=$result->num_rows;
+            if($how_many>0) {
+                $row=$result->fetch_assoc();
+                //$id
+                $nick=$row['nickname'];
+                $status=$row['status'];
+                $activity=$row['activity'];
+                $pfp=$row['pfp'];
+                $banner=$row['banner'];
+            }
+            else {
+                header('Location: index.php');
+                exit();
+            }
         }
         else {
             throw new Exception($connect->error);
         }
-        $is_good=true;
 
         if((isset($_POST['submit']) && ($_POST['submit']=="send"))) {
-            if((!isset($_POST['content'])) || ($_POST['content']=="")) {
-                $is_good=false;
-            }
-            else {
+            if((isset($_POST['content'])) && ($_POST['content']!="")) {
                 $content=$_POST['content'];
-                echo "dupa";
+                $time=time();
+                $time=date ('Y-m-d H:i:s', $time);
+                if(!$connect->query("INSERT INTO `message`(`senderID`, `recipientID`, `message_date`, `content`) VALUES ('$accountID', '$id', '$time', '$content')")) {
+                    throw new Exception($connect->error);
+                }
             }
+            
         }
+        
     }
     catch(Exception $e) {
         echo "<i>Error:</i>";
@@ -78,11 +85,11 @@
         try {
             if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
             JOIN account ON account.accountID=message.senderID
-            WHERE (`message`.senderID=1 AND `message`.recipientID=2) OR (`message`.senderID=2 AND `message`.recipientID=1)
-            ORDER BY `message_date` ASC;"))) {
+            WHERE (`message`.senderID='$accountID' AND `message`.recipientID='$id') OR (`message`.senderID='$id' AND `message`.recipientID='$accountID')
+            ORDER BY `messageID` ASC"))) {
                 while($row=$result->fetch_assoc()) {
                     echo "<div class='message'>";
-                    echo $row['nickname']." ".$row['message_date']."<br>";
+                    echo $row['nickname']." ".$row['message_date']." <a href='deletemessage.php?id=".$row['messageID']."'>Delete</a><br>";
                     echo $row['content'];
                     echo "</div>";
                 }
@@ -104,6 +111,6 @@
 </body>
 
 </html>
-<?php 
+<?php
     $connect->close();
 ?>
