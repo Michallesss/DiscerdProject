@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
+    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
         header('Location: index.php');
         exit();
     }
@@ -33,10 +33,6 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/discerd.css">
     <link rel="icon" href="imgs/icon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -45,6 +41,7 @@
             <a href="index.php"><img src="imgs/transparentlogo.png"></a>
             <ol>
                 <li><a href="search.php">Search</a></li>
+                <li><a href="requests.php">Invites</a></li>
                 <li><a href="createrequest.php">Add Friend</a></li>
                 <li><a href="logout.php">Log out</a></li>
             </ol>

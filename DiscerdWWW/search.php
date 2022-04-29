@@ -60,7 +60,7 @@
                         throw new Exception(mysqli_connect_errno());
                     }
 
-                    if($result = $connect->query(sprintf("SELECT serverID ,server_name, server_icon FROM `server` WHERE server_name LIKE '%$search%' AND is_public=1"))) {
+                    if($result = $connect->query(sprintf("SELECT serverID ,server_name, server_icon FROM `server` WHERE server_name LIKE'%$search%' AND is_public=1"))) {
                         echo "<ul>";
                         while($row=$result->fetch_assoc()) {
                             echo "<li>";

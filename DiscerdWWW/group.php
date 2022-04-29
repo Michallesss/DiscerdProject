@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']==false)) {
+    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
         header('Location: index.php');
         exit();
     }
@@ -70,10 +70,6 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/chat.css">
     <link rel="icon" href="imgs/icon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -85,8 +81,11 @@
             ORDER BY `messageID` ASC;"))) {
                 while($row=$result->fetch_assoc()) {
                     echo "<div class='message'>";
-                    echo $row['nickname']." ".$row['message_date']." <a target='_blank' href='deletemessage.php?id=".$row['messageID']."'>Delete</a><br>";
-                    echo $row['content'];
+                    echo $row['nickname']." ".$row['message_date'];
+                    if($accountID==$row['senderID']) {
+                        echo " <a target='_blank' href='deletemessage.php?id=".$row['messageID']."' onclick='window.location.reload(true);'>Delete</a>";
+                    }
+                    echo "<br>".$row['content'];
                     echo "</div>";
                 }
             }
