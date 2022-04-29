@@ -8,6 +8,18 @@
 
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
+
+    try {
+        $connect = @new mysqli($host, $user, $pass, $database);
+        if($connect->connect_errno!=0) {
+            throw new Exception($connect->mysqli_connect_errno());
+        }
+    }
+    catch(Exception $e) {
+        echo "<i>Error:</i>";
+        echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+        $connect->close();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +35,24 @@
 </head>
 
 <body>
-    test
+    <?php 
+        try {
+            if($result=$connect->query(sprintf(""))) {
+                //here..
+            }
+            else {
+                throw new Exception($connect->error);
+            }
+        }
+        catch(Exception $e) {
+            echo "<i>Error:</i>";
+            echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+            $connect->close();
+        }
+    ?>
 </body>
 
 </html>
+<?php 
+    $connect->close();
+?>
