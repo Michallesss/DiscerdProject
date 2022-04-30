@@ -23,7 +23,7 @@ INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
 VALUES (NULL, '3', '1', '0');
 
 INSERT INTO `server` (`serverID`, `server_name`, `server_icon`, `is_public`)
-VALUES (NULL, 'DiscerdAnnouncements', NULL, '0');
+VALUES (NULL, 'DiscerdAnnouncements', NULL, '1');
 
 INSERT INTO `server_group_account` (`server_group_accountID`, `serverID`, `groupID`, `accountID`, `muted`)
 VALUES (NULL, '1', NULL, '1', '0');
@@ -56,15 +56,15 @@ INSERT INTO `emoji_sticker` (`emoji_stickerID`, `name`, `picture`, `type`, `serv
 VALUES (NULL, 'pogchamp', 2137, '2', '1');
 
 INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
-VALUES (NULL, '1', '2', NULL, NULL, '2022-04-03 01:47:04.000000', 'Siema');
+VALUES (NULL, '1', '2', NULL, NULL, '2022-04-03 01:47:00.000000', 'Siema');
 INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
-VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:48:17.000000', 'cześć');
+VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:48:00.000000', 'cześć');
 INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
-VALUES (NULL, '1', '2', NULL, NULL, '2022-04-03 01:49:35.000000', 'co tam?');
+VALUES (NULL, '1', '2', NULL, NULL, '2022-04-03 01:49:00.000000', 'co tam?');
 INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
-VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:51:10.000000', 'dobrze');
+VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:51:00.000000', 'dobrze');
 INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
-VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:51:44.000000', 'a u ciebie?');
+VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:51:00.000000', 'a u ciebie?');
 
 
 INSERT INTO `permission` (`permissionID`,`permission_name`,`permission_value`,`permission_desc`)

@@ -44,16 +44,19 @@
             throw new Exception($connect->error);
         }
 
-        if((isset($_POST['submit']) && ($_POST['submit']=="send"))) {
-            if((isset($_POST['content'])) && ($_POST['content']!="")) {
+        if(isset($_POST['submit'])) {
+            if((!isset($_POST['content'])) || ($_POST['content']!="")) {
                 $content=$_POST['content'];
                 $time=time();
                 $time=date ('Y-m-d H:i', $time);
                 if(!$connect->query("INSERT INTO `message`(`senderID`, `recipientID`, `message_date`, `content`) VALUES ('$accountID', '$id', '$time', '$content')")) {
                     throw new Exception($connect->error);
                 }
+                $_POST['content']="";
+                unset($_POST['content']);
             }
-            
+            $_POST['submit'];
+            unset($_POST['submit']);
         }
         
     }

@@ -40,7 +40,7 @@
             throw new Exception($connect->error);
         }
 
-        if((isset($_POST['submit']) && ($_POST['submit']=="send"))) {
+        if(isset($_POST['submit'])) {
             if((isset($_POST['content'])) && ($_POST['content']!="")) {
                 $content=$_POST['content'];
                 $time=time();

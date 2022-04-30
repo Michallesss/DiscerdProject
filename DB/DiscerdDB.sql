@@ -34,7 +34,7 @@ CREATE TABLE `friendship`/*account_account*/
     `friendshipID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `senderID` INT(11), FOREIGN KEY (`senderID`) REFERENCES `account`(`accountID`),                             /*who invited*/
     `reciverID` INT(11), FOREIGN KEY (`reciverID`) REFERENCES `account`(`accountID`),                           /*who's invited*/
-    `status` INT(1)                                                                                             /*0-reqested 1-accepted 2-rejected 3-unfriended 4-blocked*/
+    `status` INT(1)                                                                                             /*0-reqested 1-accepted 2-blocked*/
 );
 
 /*permission names and values*/

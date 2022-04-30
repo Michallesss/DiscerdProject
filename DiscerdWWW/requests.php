@@ -37,8 +37,19 @@
 <body>
     <?php 
         try {
-            if($result=$connect->query(sprintf(""))) {
-                //here..
+            $accountID = $_SESSION['account_accountID'];
+            if($result=$connect->query(sprintf("SELECT `account`.`accountID`, `account`.`nickname`, `account`.`activity`, `account`.`status`, `account`.`pfp`, `account`.`banner` FROM friendship 
+            JOIN account ON accountID=senderID
+            WHERE `friendship`.`reciverID`='$accountID' AND `friendship`.`status`=0;"))) {
+                while($row=$result->fetch_assoc()) {
+                    echo $row['nickname']."#".$row['accountID']; 
+                    $id = $row['accountID'];
+                    echo "
+                    <form action='requestaction.php?id=$id' method='post'>
+                        <input type='submit' name='accept' value='accept'>
+                        <input type='submit' name='dismiss' value='dismiss'>
+                    </form>";
+                }
             }
             else {
                 throw new Exception($connect->error);
