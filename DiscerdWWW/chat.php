@@ -1,3 +1,4 @@
+<!--private chat between two users-->
 <?php 
     session_start();
     
@@ -81,6 +82,12 @@
 </head>
 
 <body>
+    <div class="header">
+        <?php 
+            echo "<a href='chat?id=$id'>".$nick."</a>";
+        ?>
+        <a href="index.php">Back</a>
+    </div>
     <?php
         try {
             if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 

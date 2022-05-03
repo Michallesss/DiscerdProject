@@ -1,3 +1,4 @@
+<!--Group chat with many users-->
 <?php 
     session_start();
     if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
@@ -73,6 +74,12 @@
 </head>
 
 <body>
+    <div class="header">
+        <?php 
+            echo "<a href=''>".$name."</a>"
+        ?>
+        <a href="index.php">Back</a>
+    </div>
     <?php
         try {
             if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
@@ -83,7 +90,7 @@
                     echo "<div class='message'>";
                     echo $row['nickname']." ".$row['message_date'];
                     if($accountID==$row['senderID']) {
-                        echo " <a target='_blank' href='deletemessage.php?id=".$row['messageID']."' onclick='window.location.reload(true);'>Delete</a>";
+                        echo " <a target='_blank' href='deletemessage.php?id=".$row['messageID']."'>Delete</a>";
                     }
                     echo "<br>".$row['content'];
                     echo "</div>";
