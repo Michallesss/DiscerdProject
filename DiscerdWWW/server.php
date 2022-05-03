@@ -56,10 +56,22 @@
     </div>
     <div class="content">
         <?php 
-            if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`ChannelID`, `message`.`content` FROM `message` 
-            JOIN account ON account.accountID=message.senderID
-            //dodać dopowiednie dwa where jeden sprawdza id servera drugi id kanału albo zrobić jeden tylko trzeba gdzieś jeszcze w get dać id kanału czy coś
-            ORDER BY `messageID` ASC;")))
+            try {
+                if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`ChannelID`, `message`.`content` FROM `message` 
+                JOIN account ON account.accountID=message.senderID
+                WHERE ...
+                ORDER BY `messageID` ASC;"))) { //dodać odpowiedniego whera sprawdzającego jeszcze na którym kanale to jest i to trzeba jeszcze w linku jednego geta dać
+            
+                } 
+                else {
+                    throw new Exception($connect->error);
+                }
+            }
+            catch(Exception $e) {
+                echo "<i>Error:</i>";
+                echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+                $connect->close();
+            }
         ?>
     </div>
 </body>
