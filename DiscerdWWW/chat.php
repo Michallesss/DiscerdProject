@@ -74,8 +74,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discer | Chat - <?php if(isset($nick)) echo $nick?></title>
-    
+    <title>Discer | Chat -
+        <?php if(isset($nick)) echo $nick?>
+    </title>
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/chat.css">
     <link rel="icon" href="imgs/icon.ico">
@@ -84,11 +86,12 @@
 <body>
     <div class="header">
         <?php 
-            echo "<a href='chat?id=$id'>".$nick."</a>";
+            echo "<a href='profile.php?id=$id'>".$nick."</a>";
         ?>
         <a href="index.php">Back</a>
     </div>
-    <?php
+    <div class="content">
+        <?php
         try {
             if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
             JOIN account ON account.accountID=message.senderID
@@ -113,11 +116,13 @@
             echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
             $connect->close();
         }
-    ?>
-    <form action="" method="post">
-        <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
-        <input type="submit" value="send" name="submit">
-    </form>
+        ?>
+        <form action="" method="post">
+            <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''"
+                onblur="this.placeholder='Type here...'">
+            <input type="submit" value="send" name="submit">
+        </form>
+    </div>
 </body>
 
 </html>

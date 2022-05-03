@@ -1,6 +1,7 @@
 <!--Group chat with many users-->
 <?php 
     session_start();
+
     if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
         header('Location: index.php');
         exit();
@@ -80,36 +81,38 @@
         ?>
         <a href="index.php">Back</a>
     </div>
-    <?php
-        try {
-            if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
-            JOIN account ON account.accountID=message.senderID
-            WHERE message.groupID='$id'
-            ORDER BY `messageID` ASC;"))) {
-                while($row=$result->fetch_assoc()) {
-                    echo "<div class='message'>";
-                    echo $row['nickname']." ".$row['message_date'];
-                    if($accountID==$row['senderID']) {
-                        echo " <a target='_blank' href='deletemessage.php?id=".$row['messageID']."'>Delete</a>";
+    <div class="content">
+        <?php
+            try {
+                if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
+                JOIN account ON account.accountID=message.senderID
+                WHERE message.groupID='$id'
+                ORDER BY `messageID` ASC;"))) {
+                    while($row=$result->fetch_assoc()) {
+                        echo "<div class='message'>";
+                        echo $row['nickname']." ".$row['message_date'];
+                        if($accountID==$row['senderID']) {
+                            echo " <a target='_blank' href='deletemessage.php?id=".$row['messageID']."'>Delete</a>";
+                        }
+                        echo "<br>".$row['content'];
+                        echo "</div>";
                     }
-                    echo "<br>".$row['content'];
-                    echo "</div>";
+                }
+                else {
+                    throw new Exception($connect->error);
                 }
             }
-            else {
-                throw new Exception($connect->error);
+            catch(Exception $e) {
+                echo "<i>Error:</i>";
+                echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+                $connect->close();
             }
-        }
-        catch(Exception $e) {
-            echo "<i>Error:</i>";
-            echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
-            $connect->close();
-        }
-    ?>
-    <form action="" method="post">
-        <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
-        <input type="submit" value="send" name="submit">
-    </form>
+        ?>
+        <form action="" method="post">
+            <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
+            <input type="submit" value="send" name="submit">
+        </form>
+    </div>
 </body>
 
 </html>
