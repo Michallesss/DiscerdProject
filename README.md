@@ -39,16 +39,17 @@ Folder with website stylesheets<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/signup.php">```DiscerdProject/DiscerdWWW/signup.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/upload.php">```DiscerdProject/DiscerdWWW/upload.php```</a><br>
 
-## To Do List:
+## To Do List: (```to do```-all is to do; ```css```-only css is to do; ```php```-only php is to do; ```tocre```-to create)
 ```aboutme.php``` (to do)<br>
 ```chat.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```connect.php```<br>
 ```createinvite.php``` (css)<br>
 ```createrequest.php``` (css)<br>
 ```delete.php``` (to do)<br>
+```deletemessage.php``` (php)<br>
 ```discerd.php``` (css)<br>
 ```forgotpass.php``` (to do)<br>
-```group.php``` (to do)<br>
+```group.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```index.php``` (css)<br>
 ```invite.php```<br>
 ```logging.php```<br>
@@ -57,6 +58,6 @@ Folder with website stylesheets<br>
 ```profile.php``` (to do)<br>
 ```registering.php```<br>
 ```search.php``` (css)<br>
-```server.php``` (to do)<br>
+```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
-```upload.php``` (to do)<br>
+```upload.php``` (php)<br>
