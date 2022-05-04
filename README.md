@@ -43,6 +43,7 @@ Folder with website stylesheets<br>
 ```aboutme.php``` (to do)<br>
 ```chat.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```connect.php```<br>
+```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
 ```createinvite.php``` (css)<br>
 ```createrequest.php``` (css)<br>
 ```delete.php``` (to do)<br>
@@ -61,3 +62,4 @@ Folder with website stylesheets<br>
 ```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
+//and I can but I don't want to do: permission, emojis, roles and invites using `invite` table. Maybe later
