@@ -33,7 +33,8 @@ Folder with website stylesheets<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/login.php">```DiscerdProject/DiscerdWWW/login.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/logout.php">```DiscerdProject/DiscerdWWW/logout.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/profile.php">```DiscerdProject/DiscerdWWW/profile.php```</a><br>
-<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/registering.php">```DiscerdProject/DiscerdWWW/reqistering.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/registering.php">```DiscerdProject/DiscerdWWW/registering.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/requestaction.php">```DiscerdProject/DiscerdWWW/requestaction.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/search.php">```DiscerdProject/DiscerdWWW/search.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/server.php">```DiscerdProject/DiscerdWWW/server.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/signup.php">```DiscerdProject/DiscerdWWW/signup.php```</a><br>
@@ -58,6 +59,7 @@ Folder with website stylesheets<br>
 ```logout.php```<br>
 ```profile.php``` (to do)<br>
 ```registering.php```<br>
+```requestaction.php``` (todo)<br>
 ```search.php``` (css)<br>
 ```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
