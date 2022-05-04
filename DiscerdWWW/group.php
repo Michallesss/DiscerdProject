@@ -2,17 +2,17 @@
 <?php 
     session_start();
 
-    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
+    if((!isset($_SESSION['is_logged'])) || (!$_SESSION['is_logged'])) {
         header('Location: index.php');
         exit();
     }
 
-    if(!isset($_GET['id'])) {
+    if((!isset($_GET['group'])) || ($_GET['group']=="")) {
         header('Location: index.php');
         exit();
     }
     else {
-        $id=$_GET['id'];
+        $id=$_GET['group'];
         $accountID=$_SESSION['account_accountID'];
     }
 

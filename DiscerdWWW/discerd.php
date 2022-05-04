@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
+    if((!isset($_SESSION['is_logged'])) || (!$_SESSION['is_logged'])) {
         header('Location: index.php');
         exit();
     }
@@ -62,7 +62,7 @@
                         ORDER BY nickname"))) {
                             while($row=$result->fetch_assoc()) {
                                 echo "<li>";
-                                echo "<a href='chat.php?id=".$row['accountID']."'>".$row['nickname']."</a>";
+                                echo "<a href='chat.php?chat=".$row['accountID']."'>".$row['nickname']."</a>";
                                 echo "</li>";
                             }
                         }
@@ -75,7 +75,7 @@
                         WHERE server_group_account.accountID='$id'"))) {
                             while($row=$result->fetch_assoc()) {
                                 echo "<li>";
-                                echo "<a href='group.php?id=".$row['groupID']."'>".$row['group_name']."</a>";
+                                echo "<a href='group.php?group=".$row['groupID']."'>".$row['group_name']."</a>";
                                 echo "</li>";
                             }
                         }
@@ -99,7 +99,7 @@
                             echo "<ul>";
                             while($row=$result->fetch_assoc()) {
                                 echo "<li>";
-                                echo "<a href='server.php?id=".$row['serverID']."'>".$row['server_name']."</a>";
+                                echo "<a href='server.php?server=".$row['serverID']."'>".$row['server_name']."</a>";
                                 echo "</li>";
                             }
                             echo "</ul>";
