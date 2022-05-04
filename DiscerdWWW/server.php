@@ -1,6 +1,5 @@
 <!--Server with many channels and members-->
-<?php 
-    //będzie przy wczytywaniu wiadomości i nazwy kanału (po nazwie servera itp.) sprawdzać czy jest ustawiona zmienna channelid jak nie to nie załaduje wiadomośći ani okna z waidomościami
+<?php
     session_start();
 
     if((!isset($_SESSION['is_logged'])) || (!$_SESSION['is_logged'])) {
@@ -25,10 +24,20 @@
         }
 
         if((!isset($_GET['channel'])) || ($_GET['channel']=="")) {
-            //here..
+            //wybieranie najmniejszego channelid na serverze
         }
         else {
-            $channelid=$_GET['channel'];
+            if($result=$connect->query(sprintf("SELECT * FROM `channel` WHERE")))
+            {
+                $how_many=$result->num_rows;
+                if($how_many>0) {
+                    $channelid=$_GET['channel'];
+                }
+                else {
+                    //to samo co w lini 30 (czyli to wybieranie pierwszego kanału na serverze)
+                }
+            }
+            
         }
 
         if($result=$connect->query(sprintf("SELECT `server`.`server_name`, `server`.`server_icon`, `server`.`is_public` FROM `server` WHERE `serverID`='$id'"))) {
@@ -72,23 +81,24 @@
 </head>
 
 <body>
-    <div class="header">
+    <div class="header"><!--just header-->
         <?php 
-        
+            //here..
         ?>
     </div>
     <div class="l-menu"><!--list of server's channels-->
         <?php 
-
+            //here..
+            //tutaj wyświetla wszystkie kategorie i kanały
         ?>
     </div>
-    <div class="content">
+    <div class="content"><!--channel's messages-->
         <?php 
             try {
                 if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`ChannelID`, `message`.`content` FROM `message` 
                 JOIN account ON account.accountID=message.senderID
                 WHERE `channelID`='$channelid'
-                ORDER BY `messageID` ASC;"))) { //dodać odpowiedniego whera sprawdzającego jeszcze na którym kanale to jest i to trzeba jeszcze w linku jednego geta dać
+                ORDER BY `messageID` ASC;"))) {
                     //here..
                 } 
                 else {
