@@ -45,7 +45,7 @@
                     echo $row['nickname']."#".$row['accountID']; 
                     $id = $row['accountID'];
                     echo "
-                    <form action='requestaction.php?id=$id' method='post'>
+                    <form action='requestaction.php?user=$id' method='post'>
                         <input type='submit' name='accept' value='accept'>
                         <input type='submit' name='dismiss' value='dismiss'>
                     </form>";
