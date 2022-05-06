@@ -40,7 +40,7 @@ Folder with website stylesheets<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/signup.php">```DiscerdProject/DiscerdWWW/signup.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/upload.php">```DiscerdProject/DiscerdWWW/upload.php```</a><br>
 
-## To Do List: (```to do```-all is to do; ```css```-only css is to do; ```php```-only php is to do; ```tocre```-to create)
+## To Do List: (```to do```-all is to do; ```css```-only css is to do; ```php```-only php is to do; ```tocre```-to create; ```toinc```-to incluide)
 ```aboutme.php``` (to do)<br>
 ```chat.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```connect.php```<br>
