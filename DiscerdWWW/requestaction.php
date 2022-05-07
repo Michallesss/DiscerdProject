@@ -45,8 +45,10 @@
                 }
                 break;
             case "dimiss":
-                if($result=$connect->query(sprintf("..."))) {
-                    //here..
+                if($result=$connect->query(sprintf("DELETE FROM `friendship` WHERE ((`friendship`.`senderID`='$accountid' OR `friendship`.`reciverID`='$accountid') AND (`friendship`.`senderID`='$id' OR `friendship`.`reciverID`='$id')) AND `friendship`.`status`='0';"))) {
+                    header('Location: requests.php');
+                    $connect->close();
+                    exit();
                 }
                 else {
                     echo "<i>Error:</i>";

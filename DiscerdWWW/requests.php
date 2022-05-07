@@ -62,6 +62,7 @@
             $connect->close();
         }
     ?>
+    <a href="index.php" style="float: left;">Back</a>
 </body>
 
 </html>
