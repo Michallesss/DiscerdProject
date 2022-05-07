@@ -1,7 +1,7 @@
 USE `DiscerdDB`;
 
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
-VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', 'admin', NULL, NULL, NULL, NULL, NULL); /*admin, admin*/
+VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', 'admin', 'Hi, Im admin', 'programming', NULL, NULL, NULL); /*admin, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
 VALUES (NULL, 'Mikael', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', NULL, NULL); /*Miakel, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`)
@@ -21,6 +21,8 @@ INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
 VALUES (NULL, '1', '2', '1');
 INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
 VALUES (NULL, '3', '1', '0');
+INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
+VALUES (NULL, '2', '1', '0');
 
 INSERT INTO `server` (`serverID`, `server_name`, `server_icon`, `is_public`)
 VALUES (NULL, 'DiscerdAnnouncements', NULL, '1');
