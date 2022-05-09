@@ -79,7 +79,7 @@
         <?php 
             echo "<a href=''>".$name."</a>"
         ?>
-        <a href="index.php">Back</a>
+        <a href="discerd.php">Back</a>
     </div>
     <div class="content">
         <?php

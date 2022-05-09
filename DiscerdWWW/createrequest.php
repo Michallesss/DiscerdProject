@@ -26,7 +26,7 @@
             $tag = $_POST['tag'];
             if($_SESSION['account_accountID']==$tag) {
                 $is_good=false;
-                $rq_tag_error="This is your tag";
+                $rq_tag_error="You can't send invite to yourself";
             }
         }
     
@@ -102,13 +102,14 @@
 </head>
 
 <body>
-    <div class="form"><!--todo: wyświetlanie info o poprawnym wysłaniu zaproszenia-->
+    <div class="form">
         <?php 
             if(isset($info)) {
                 echo "<div class='info'>".$info."</div>";
                 unset($nick);
                 unset($tag);
                 unset($info);
+                echo "<a href='discerd.php' style='float: left;'>Back</a>";
                 exit();
             }
         ?>
@@ -126,7 +127,7 @@
                     unset($rq_tag_error);
                 }?>
             <input type="submit" name="submit" value="Send request">
-            <a href="index.php" style="float: left;">Back</a>
+            <a href="discerd.php" style="float: left;">Back</a>
         </form>
     </div>
 </body>

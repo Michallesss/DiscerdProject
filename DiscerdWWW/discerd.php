@@ -15,6 +15,33 @@
         if($connect->connect_errno!=0) {
             throw new Exception(mysqli_connect_errno());
         }
+
+        if(isset($_SESSION['account_accountID'])) {
+            $id = $_SESSION['account_accountID'];
+            if($result = $connect->query(sprintf("SELECT * FROM account WHERE accountID='$id'"))) {
+                $how_many = $result->num_rows;
+                if($how_many>0) {
+                    $account = $result->fetch_assoc();
+
+                    $_SESSION['account_login'] = $account['login'];
+                    $_SESSION['account_password'] = $account['password'];
+                    $_SESSION['account_phone'] = $account['phone'];
+                    $_SESSION['account_email'] = $account['email'];
+                    $_SESSION['account_nick'] = $account['nickname'];
+                    $_SESSION['account_aboutme'] = $account['aboutme'];
+                    $_SESSION['account_status'] = $account['status'];
+                    $_SESSION['account_activity'] = $account['activity'];
+                    $_SESSION['account_pfp'] = $account['pfp'];
+                    $_SESSION['account_banner'] = $account['banner'];
+                }
+                else {
+                    exit();
+                }
+            }
+            else {
+                throw new Exception($connect->error);
+            }
+        }
     }
     catch (Exception $e) {
         echo "<i>Error:</i>";
@@ -175,7 +202,7 @@
                                 break;
                         }
                         echo "<li>";
-                        echo "<a href='profile.php?id=".$row['accountID']."'>".$row['nickname']."</a><br>";
+                        echo "<a href='chat.php?chat=".$row['accountID']."'>".$row['nickname']."</a><br>";
                         echo $activity." ".$row['status'];
                         echo "</li>";
                     }

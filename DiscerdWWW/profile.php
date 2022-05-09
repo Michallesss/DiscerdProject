@@ -44,6 +44,7 @@
             echo "<i>Error:</i>";
             echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
         }
+        $connect->close();
     }
     else {
         $nick = $_SESSION['account_nick'];
@@ -99,11 +100,8 @@
             }
             echo $nick;
         ?>
-        <a href="index.php" style="float: left;">Back</a>
+        <a href="discerd.php" style="float: left;">Back</a>
     </div>
 </body>
 
 </html>
-<?php 
-    $connect->close();
-?>

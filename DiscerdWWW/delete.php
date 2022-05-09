@@ -87,8 +87,8 @@
                     unset($dl_error_password);
                 }
             ?>
-            Are you sure you want delete your account permanently
-            <input type="checkbox" name="check" style="width: auto; display: inline;">
+            <label for="check">Are you sure you want delete your account permanently</label>
+            <input type="checkbox" id="check" name="check" style="width: auto; display: inline;">
             <?php 
                 if(isset($dl_error_check)) {
                     echo "<div class='error'>".$dl_error_check."</div>";
@@ -99,6 +99,7 @@
             <?php
                 unset($_POST['submit']);
             ?>
+            <a href="discerd.php" style="float: left;">Back</a>
         </form>
     </div>
 </body>

@@ -72,7 +72,7 @@
             <input type="text" name="message" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'">
             Click create and copy the link
             <input type="submit" value="create invite">
-            <a href="index.php" style="float: left;">Back</a>
+            <a href="discerd.php" style="float: left;">Back</a>
         </form>
     </div>
 </body>

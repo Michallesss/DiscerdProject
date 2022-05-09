@@ -45,7 +45,7 @@
             <input type="email" name="pf_email" value="" placeholder="New E-mail" onfocus="this.placeholder=''" onblur="this.placeholder='New E-mail'">
             <a href="changepass.php">Change password</a><br>
             <a href="delete.php">Delete account</a><br>
-            <a href="index.php" style="float: left;">Back</a>
+            <a href="discerd.php" style="float: left;">Back</a>
         </form>
     </div>
 </body>

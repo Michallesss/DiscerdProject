@@ -7,7 +7,7 @@
         exit();
     }
 
-    if(!isset(($_GET['chat'])) || ($_GET['chat'])) {
+    if(!isset(($_GET['chat'])) || ($_GET['chat']=="")) {
         header('Location: index.php');
         exit();
     }
@@ -88,7 +88,7 @@
         <?php 
             echo "<a href='profile.php?id=$id'>".$nick."</a>";
         ?>
-        <a href="index.php">Back</a>
+        <a href="discerd.php">Back</a>
     </div>
     <div class="content">
         <?php

@@ -24,7 +24,7 @@
         }
 
         if((!isset($_GET['channel'])) || ($_GET['channel']=="")) {
-            //wybieranie najmniejszego channelid na serverze
+            //wybieranie najmniejszego channelid na serverze tutaj też chyba będzie definiowany $channelid
         }
         else {
             if($result=$connect->query(sprintf("SELECT * FROM `channel` WHERE")))

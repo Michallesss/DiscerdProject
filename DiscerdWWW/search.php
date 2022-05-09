@@ -34,7 +34,7 @@
 
 <body>
     <div class="topnav">
-        <a href="index.php">Home</a>
+        <a href="discerd.php">Home</a>
         <div class="search-container">
             <form action="" method="post">
                 <input type="text" placeholder="Search.." onfocus="this.placeholder=''" onblur="this.placeholder='Search..'" name="search">
@@ -64,7 +64,8 @@
                         echo "<ul>";
                         while($row=$result->fetch_assoc()) {
                             echo "<li>";
-                            echo "<a href=''>".$row['server_name']."</a>";
+                            $id=$row['serverID'];
+                            echo "<a href='server.php?server=$id'>".$row['server_name']."</a>";
                             echo "</li>";
                         }
                         echo "</ul>";
