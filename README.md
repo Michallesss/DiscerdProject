@@ -12,9 +12,9 @@ Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 ### DiscerdWWW/..
 ##### actions/..
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/changepass.php">```DiscerdProject/DiscerdWWW/actions/changepass.php```</a><br>
-<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/delete.php">```DiscerdProject/DiscerdWWW/actions/deleteaccount.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/deletemessage.php">```DiscerdProject/DiscerdWWW/actions/deletemessage.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/logout.php">```DiscerdProject/DiscerdWWW/actions/logout.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/send.php">```DiscerdProject/DiscerdWWW/actions/send.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/upload.php">```DiscerdProject/DiscerdWWW/actions/upload.php```</a><br>
 (later: logging, registering)<br>
 Folder with actions like uploading images<br>
@@ -32,6 +32,7 @@ Folder with website stylesheets<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/connect.php">```DiscerdProject/DiscerdWWW/connect.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/createinvite.php">```DiscerdProject/DiscerdWWW/createinvite.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/createrequest.php">```DiscerdProject/DiscerdWWW/createrequest.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/deleteaccount.php">```DiscerdProject/DiscerdWWW/actions/deleteaccount.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/discerd.php">```DiscerdProject/DiscerdWWW/discerd.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/forgotpass.php">```DiscerdProject/DiscerdWWW/forgotpass.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/group.php">```DiscerdProject/DiscerdWWW/group.php```</a><br>
@@ -54,7 +55,7 @@ Folder with website stylesheets<br>
 ```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
 ```createinvite.php``` (css)<br>
 ```createrequest.php``` (css)<br>
-```delete.php``` (to do)<br>
+```deleteaccount.php``` (to do)<br>
 ```deletemessage.php``` (php)<br>
 ```discerd.php``` (css)<br>
 ```forgotpass.php``` (to do)<br>
@@ -68,6 +69,7 @@ Folder with website stylesheets<br>
 ```registering.php```<br>
 ```requestaction.php``` (todo)<br>
 ```search.php``` (css)<br>
+```send``` (php)<br>
 ```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>

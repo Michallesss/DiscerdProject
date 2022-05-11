@@ -44,7 +44,7 @@
             <input type="tel" name="pf_phone" value="" placeholder="New Phone number" onfocus="this.placeholder=''" onblur="this.placeholder='New Phone number'">
             <input type="email" name="pf_email" value="" placeholder="New E-mail" onfocus="this.placeholder=''" onblur="this.placeholder='New E-mail'">
             <a href="actions/changepass.php">Change password</a><br>
-            <a href="actions/deleteaccount.php">Delete account</a><br>
+            <a href="deleteaccount.php">Delete account</a><br>
             <a href="discerd.php" style="float: left;">Back</a>
         </form>
     </div>

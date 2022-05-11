@@ -15,9 +15,11 @@ CREATE TABLE `account`
     `nickname` VARCHAR(30),                             /*difrent between nickname and login is that nickname displays on ur profil and can be repetitive whereas, login is using to log in*/
     `aboutme` VARCHAR(150),                             /*biography*/
     `status` VARCHAR(30),                               /*status message*/
-    `activity` INT(1),                                  /*0-Offline, 1-Online, 2-Do not distrub, 3-IDle*/
+    `activity` INT(1) DEFAULT '1',                      /*0-Offline, 1-Online, 2-Do not distrub, 3-IDle*/
     `pfp` VARCHAR(30),                                  /*profile picture*/
-    `banner` VARCHAR(30)                                /*profile banner*/
+    `banner` VARCHAR(30),                               /*profile banner*/
+    /*Account permission:*/
+    `permission_lever` INT(2) DEFAULT '0'               /*0-normal user, 1-mod, 2-head mod, other.., 9-head admin, 10-owner*/
 );
 
 /*table for making group chats*/
@@ -34,7 +36,7 @@ CREATE TABLE `friendship`/*account_account*/
     `friendshipID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `senderID` INT(11), FOREIGN KEY (`senderID`) REFERENCES `account`(`accountID`),                             /*who invited*/
     `reciverID` INT(11), FOREIGN KEY (`reciverID`) REFERENCES `account`(`accountID`),                           /*who's invited*/
-    `status` INT(1)                                                                                             /*0-reqested 1-accepted 2-blocked*/
+    `status` INT(1) DEFAULT '0'                                                                                 /*0-reqested 1-accepted 2-blocked*/
 );
 
 /*permission names and values*/
@@ -80,7 +82,7 @@ CREATE TABLE `role_permission`
 (
     `role_permissionID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `roleID` INT(11), FOREIGN KEY (`roleID`) REFERENCES `role`(`roleID`),
-    `permissionID` int(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
+    `permissionID` INT(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
 );
 
 /*servers invites*/
@@ -107,7 +109,7 @@ CREATE TABLE `category_permission`
 (
     `category_permissionID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `categoryID` INT(11), FOREIGN KEY (`categoryID`) REFERENCES `category`(`categoryID`),
-    `permissionID` int(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
+    `permissionID` INT(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
 );
 
 /*text channels*/
@@ -117,7 +119,7 @@ CREATE TABLE `channel`
     `categoryID` INT(11), FOREIGN KEY(`categoryID`) REFERENCES `category`(`categoryID`),
     `name` VARCHAR(50),
     `weight` INT(11),
-    `type` int(1)            /*1-text chanel; 2-voice channel*/
+    `type` INT(1)            /*1-text chanel; 2-voice channel*/
 );
 
 /*channel permissions*/
@@ -125,7 +127,7 @@ CREATE TABLE `channel_permission`
 (
     `channel_permissionID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `channelID` INT(11), FOREIGN KEY (`channelID`) REFERENCES `channel`(`channelID`),
-    `permissionID` int(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
+    `permissionID` INT(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
 );
 
 /*messages (private, group, server)*/
@@ -147,7 +149,7 @@ CREATE TABLE `server_group_account`
     `serverID` INT(11) DEFAULT NULL,           FOREIGN KEY(`serverID`) REFERENCES `server`(`serverID`),
     `groupID` INT(11) DEFAULT NULL,            FOREIGN KEY(`groupID`) REFERENCES `group`(`groupID`),
     `accountID` INT(11),                       FOREIGN KEY(`accountID`) REFERENCES `account`(`accountID`),
-    `muted` int(1) DEFAULT 0
+    `muted` INT(1) DEFAULT 0
 );
 
 /*table for linking roles and accounts*/
@@ -163,5 +165,5 @@ CREATE TABLE `personal_permission`
 (
     `personal_permissionID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `server_accountID` INT(11), FOREIGN KEY(`server_accountID`) REFERENCES `server_group_account`(`server_group_accountID`),
-    `permissionID` int(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
+    `permissionID` INT(11), FOREIGN KEY(`permissionID`) REFERENCES `permission`(`permissionID`)
 );
