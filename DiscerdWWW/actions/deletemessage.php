@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discer | Delete Message</title>
+    <title>Discer | Deleteing Message</title>
     
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="imgs/icon.ico">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../imgs/icon.ico">
 </head>
 
 <body></body>
@@ -18,13 +18,31 @@
 <?php
     session_start();
 
-    if((!isset($_SESSION['is_logged'])) && ($_SESSION['is_logged']==false)) {
-        echo "<script>window.close(); location.reload(true);</script>";
+    function back() {
+        if(isset($_GET['chat'])) {
+            $id=$_GET['chat'];
+            header('Location: ../chat.php?chat='.$id);
+            echo "ni";
+        }
+        else if(isset($_GET['group'])) {
+            $id=$_GET['group'];
+            header('Location: ../group.php?group='.$id);
+            echo "g";
+        }
+        else if(isset($_GET['channel'])) {
+            $id=$_GET['channel'];
+            header('Location: ../server.php?channel='.$id);
+            echo "er";
+        }
+    }
+
+    if((!isset($_SESSION['is_logged'])) && (!$_SESSION['is_logged'])) {
+        header('Location: index.php');
         exit();
     }
 
     if((!isset($_GET['id'])) || ($_GET['id']=="")) {
-        echo "<script>window.close(); location.reload(true);</script>";
+        back();
         exit();
     }
     else {
@@ -32,7 +50,7 @@
         $accountID=$_SESSION['account_accountID'];
     }
 
-    require_once "connect.php";
+    require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
 
     try {
@@ -42,7 +60,8 @@
         }
 
         if($result=$connect->query(sprintf("DELETE FROM `message` WHERE `senderID`='$accountID' AND `messageID`='$id'"))) {
-            echo "<script>window.close(); location.reload(true);</script>";
+            back();
+            $connect->close();
             exit();
         }
         else {
@@ -52,7 +71,6 @@
     catch(Exception $e) {
         echo "<i>Error:</i>";
         echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+        $connect->close();
     }
-    echo "<script>window.close(); location.reload(true);</script>";
-    exit();
 ?>

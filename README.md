@@ -56,10 +56,10 @@ Folder with website stylesheets<br>
 ```createinvite.php``` (css)<br>
 ```createrequest.php``` (css)<br>
 ```deleteaccount.php``` (to do)<br>
-```deletemessage.php``` (php)<br>
+```deletemessage.php```<br>
 ```discerd.php``` (css)<br>
 ```forgotpass.php``` (to do)<br>
-```group.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
+```group.php``` (css) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```index.php``` (css)<br>
 ```invite.php```<br>
 ```logging.php```<br>
@@ -67,9 +67,10 @@ Folder with website stylesheets<br>
 ```logout.php```<br>
 ```profile.php``` (to do)<br>
 ```registering.php```<br>
-```requestaction.php``` (todo)<br>
+```requestaction.php```<br>
+```requests.php``` (css)<br>
 ```search.php``` (css)<br>
-```send``` (php)<br>
+```send```<br>
 ```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>

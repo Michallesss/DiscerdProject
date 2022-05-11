@@ -22,7 +22,8 @@
         if($connect->connect_errno!=0) {
             throw new Exception($connect->mysqli_connect_errno());
         }
-
+        
+        //wybieranie servera jeśli podane jest id!!!
         if((!isset($_GET['channel'])) || ($_GET['channel']=="")) {
             //wybieranie najmniejszego channelid na serverze tutaj też chyba będzie definiowany $channelid
         }

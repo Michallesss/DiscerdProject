@@ -42,7 +42,7 @@
             throw new Exception($connect->error);
         }
 
-        if(isset($_POST['submit'])) {
+        /*if(isset($_POST['submit'])) {
             if((isset($_POST['content'])) && ($_POST['content']!="")) {
                 $content=$_POST['content'];
                 $time=time();
@@ -52,7 +52,7 @@
                 }
             }
         }
-        unset($_POST['submit']);
+        unset($_POST['submit']);*/
     }
     catch(Exception $e) {
         echo "<i>Error:</i>";
@@ -92,7 +92,7 @@
                         echo "<div class='message'>";
                         echo $row['nickname']." ".$row['message_date'];
                         if($accountID==$row['senderID']) {
-                            echo " <a target='_blank' href='deletemessage.php?id=".$row['messageID']."'>Delete</a>";
+                            echo "<a href='actions/deletemessage.php?id=".$row['messageID']."&group=".$id."'>Delete</a>";
                         }
                         echo "<br>".$row['content'];
                         echo "</div>";
@@ -108,8 +108,9 @@
                 $connect->close();
             }
         ?>
-        <form action="" method="post">
+        <form action="actions/send.php" method="post">
             <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
+            <input type="hidden" value="<?php echo$id; ?>" name="group">
             <input type="submit" value="send" name="submit">
         </form>
     </div>

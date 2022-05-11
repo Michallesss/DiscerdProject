@@ -2,25 +2,25 @@
 <?php 
     session_start();
 
-    if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
-        header('Location: requests.php');
+    if((!isset($_SESSION['is_logged'])) || (!$_SESSION['is_logged'])) {
+        header('Location: index.php');
         exit();
     }
 
     if(!isset($_POST['action'])) {
-        header('Location: requests.php');
+        header('Location: ../requests.php');
         exit();
     }
 
     if((!isset($_POST['user'])) || ($_POST['user']=="")) {
-        header('Location: requests.php');
+        header('Location: ../requests.php');
         exit();
     }
     
     $id=$_POST['user'];
     $accountid= $_SESSION['account_accountID'];
 
-    require_once "connect.php";
+    require_once "../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     
     try {
@@ -33,7 +33,7 @@
             case "accept":
                 if($result=$connect->query(sprintf("UPDATE `friendship` SET status='1'
                 WHERE ((`friendship`.`senderID`='$id' OR `friendship`.`reciverID`='$id') AND (`friendship`.`senderID`='$accountid' OR `friendship`.`reciverID`='$accountid')) AND `friendship`.`status`='0';"))) {
-                    header('Location: requests.php');
+                    header('Location: ../requests.php');
                     $connect->close();
                     exit();
                 }
@@ -46,7 +46,7 @@
                 break;
             case "dimiss":
                 if($result=$connect->query(sprintf("DELETE FROM `friendship` WHERE ((`friendship`.`senderID`='$accountid' OR `friendship`.`reciverID`='$accountid') AND (`friendship`.`senderID`='$id' OR `friendship`.`reciverID`='$id')) AND `friendship`.`status`='0';"))) {
-                    header('Location: requests.php');
+                    header('Location: ../requests.php');
                     $connect->close();
                     exit();
                 }
@@ -59,7 +59,7 @@
         }
 
         if($result=$connect->query(sprintf("UPDATE ..."))) {
-            header('Location: requests.php');
+            header('Location: ../requests.php');
             exit();
         }
         else {
@@ -81,8 +81,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discer | Action on Request...</title>
     
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="imgs/icon.ico">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../imgs/icon.ico">
 </head>
 
 <body></body>
