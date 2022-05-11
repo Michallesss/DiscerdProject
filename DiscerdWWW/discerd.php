@@ -70,7 +70,7 @@
                 <li><a href="search.php">Search</a></li>
                 <li><a href="requests.php">Invites</a></li>
                 <li><a href="createrequest.php">Add Friend</a></li>
-                <li><a href="logout.php">Log out</a></li>
+                <li><a href="actions/logout.php">Log out</a></li>
             </ol>
         </div>
         <div class="left-menu">

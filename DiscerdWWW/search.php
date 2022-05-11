@@ -34,7 +34,7 @@
 
 <body>
     <div class="topnav">
-        <a href="discerd.php">Home</a>
+        <a href="index.php"><img src="imgs/transparentlogo.png"></a>
         <div class="search-container">
             <form action="" method="post">
                 <input type="text" placeholder="Search.." onfocus="this.placeholder=''" onblur="this.placeholder='Search..'" name="search">
