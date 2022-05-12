@@ -19,7 +19,7 @@ CREATE TABLE `account`
     `pfp` VARCHAR(30),                                  /*profile picture*/
     `banner` VARCHAR(30),                               /*profile banner*/
     /*Account permission:*/
-    `permission_lever` INT(2) DEFAULT '0'               /*0-normal user, 1-mod, 2-head mod, other.., 9-head admin, 10-owner*/
+    `permission_level` INT(2) DEFAULT '0'               /*0-normal user, 1-mod, 2-head mod, other.., 9-head admin, 10-owner*/
 );
 
 /*table for making group chats*/
