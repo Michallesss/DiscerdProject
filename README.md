@@ -74,4 +74,4 @@ Folder with website stylesheets<br>
 ```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
-//and I can but I don't want to do: permission, emojis, roles and invites using `invite` table. Maybe later
+//and I can but I don't want to do: permission, emojis, admin dashborad, roles and invites using `invite` table. Maybe later
