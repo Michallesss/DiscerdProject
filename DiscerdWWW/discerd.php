@@ -33,6 +33,7 @@
                     $_SESSION['account_activity'] = $account['activity'];
                     $_SESSION['account_pfp'] = $account['pfp'];
                     $_SESSION['account_banner'] = $account['banner'];
+                    $_SESSION['account_permission_level'] = $account['permission_level'];
                 }
                 else {
                     exit();
@@ -67,6 +68,11 @@
         <div class="header">
             <a href="index.php"><img src="imgs/transparentlogo.png"></a>
             <ol>
+                <?php 
+                if($_SESSION['account_permission_level']>0) {
+                    echo "<li><b><i><a href='dashboard.php'>Admin Panel</a></i></b></li>";
+                }
+                ?>
                 <li><a href="search.php">Search</a></li>
                 <li><a href="requests.php">Invites</a></li>
                 <li><a href="createrequest.php">Add Friend</a></li>
