@@ -62,7 +62,8 @@
             $connect->close();
         }
     ?>
-    <a href="index.php" style="float: left;">Back</a>
+    <a href="index.php">Back</a>
+    <a href="createrequest.php">Send Invite</a>
 </body>
 
 </html>
