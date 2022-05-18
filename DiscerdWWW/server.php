@@ -7,14 +7,6 @@
         exit();
     }
 
-    if((!isset($_GET['server'])) || ($_GET['server']=="")) {
-        header('Location: index.php');
-        exit();
-    }
-    else {
-        $id = $_GET['server'];
-    }
-
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {
@@ -28,7 +20,7 @@
             //wybieranie najmniejszego channelid na serverze tutaj też chyba będzie definiowany $channelid
         }
         else {
-            if($result=$connect->query(sprintf("SELECT * FROM `channel` WHERE")))
+            /*if($result=$connect->query(sprintf("...")))
             {
                 $how_many=$result->num_rows;
                 if($how_many>0) {
@@ -37,8 +29,14 @@
                 else {
                     //to samo co w lini 30 (czyli to wybieranie pierwszego kanału na serverze)
                 }
-            }
+            }*/
+        }
+
+        if((!isset($_GET['server'])) || ($_GET['server']=="")) {
             
+        }
+        else {
+
         }
 
         if($result=$connect->query(sprintf("SELECT `server`.`server_name`, `server`.`server_icon`, `server`.`is_public` FROM `server` WHERE `serverID`='$id'"))) {
@@ -84,10 +82,10 @@
 <body>
     <div class="header"><!--just header-->
         <?php 
-            //here..
+            //here.. nie wiem co tu miało być
         ?>
     </div>
-    <div class="l-menu"><!--list of server's channels-->
+    <div class="l-menu" style="float: left;"><!--list of server's channels-->
         <?php 
             //here..
             //tutaj wyświetla wszystkie kategorie i kanały
@@ -96,15 +94,12 @@
     <div class="content"><!--channel's messages-->
         <?php 
             try {
-                if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`ChannelID`, `message`.`content` FROM `message` 
+                if(!$result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`ChannelID`, `message`.`content` FROM `message` 
                 JOIN account ON account.accountID=message.senderID
                 WHERE `channelID`='$channelid'
                 ORDER BY `messageID` ASC;"))) {
-                    //here..
-                } 
-                else {
                     throw new Exception($connect->error);
-                }
+                } 
             }
             catch(Exception $e) {
                 echo "<i>Error:</i>";

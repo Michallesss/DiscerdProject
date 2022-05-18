@@ -32,6 +32,7 @@ Folder with website stylesheets<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/connect.php">```DiscerdProject/DiscerdWWW/connect.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/createinvite.php">```DiscerdProject/DiscerdWWW/createinvite.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/createrequest.php">```DiscerdProject/DiscerdWWW/createrequest.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/dashboard.php">```DiscerdProject/DiscerdWWW/dashboard.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/deleteaccount.php">```DiscerdProject/DiscerdWWW/actions/deleteaccount.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/discerd.php">```DiscerdProject/DiscerdWWW/discerd.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/forgotpass.php">```DiscerdProject/DiscerdWWW/forgotpass.php```</a><br>
@@ -55,6 +56,7 @@ Folder with website stylesheets<br>
 ```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
 ```createinvite.php``` (css)<br>
 ```createrequest.php``` (css)<br>
+```dashboard``` (to do)<br>
 ```deleteaccount.php``` (to do)<br>
 ```deletemessage.php```<br>
 ```discerd.php``` (css)<br>
@@ -74,4 +76,4 @@ Folder with website stylesheets<br>
 ```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
-//and I can but I don't want to do: permission, emojis, admin dashborad, roles and invites using `invite` table. Maybe later
+//and I can but I don't want to do: permission, emojis, roles and invites using `invite` table. Maybe later

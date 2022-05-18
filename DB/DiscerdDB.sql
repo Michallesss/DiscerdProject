@@ -149,7 +149,8 @@ CREATE TABLE `server_group_account`
     `serverID` INT(11) DEFAULT NULL,           FOREIGN KEY(`serverID`) REFERENCES `server`(`serverID`),
     `groupID` INT(11) DEFAULT NULL,            FOREIGN KEY(`groupID`) REFERENCES `group`(`groupID`),
     `accountID` INT(11),                       FOREIGN KEY(`accountID`) REFERENCES `account`(`accountID`),
-    `muted` INT(1) DEFAULT 0
+    `muted` INT(1) DEFAULT '0',
+    `status` INT(1) DEFAULT '0'                /*0-normal, 1-baned*/
 );
 
 /*table for linking roles and accounts*/

@@ -81,7 +81,7 @@
         </div>
         <div class="left-menu">
             <div class="l-list-s">
-                <?php //list of servers
+                <?php //list of users
                     $id=$_SESSION['account_accountID'];
                     try{
                         echo "<ul>";
@@ -124,7 +124,7 @@
                 ?>
             </div>
             <div class="l-list-u">
-                <?php //list of users
+                <?php //list of servers
                     try {
                         if($result = $connect->query(sprintf("SELECT server.serverID, server.server_name, server.server_icon FROM server
                         JOIN server_group_account ON server.serverID=server_group_account.serverID
