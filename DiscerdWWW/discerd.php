@@ -104,7 +104,7 @@
                 WHERE server_group_account.accountID='$id';"))) { 
                     while($row=$result->fetch_assoc()) {
                         echo "<div class='servercontent'>";
-                        echo "<a href='server.php?server=".$row['serverID']."'><img src='usersimgs/'".$row['server_icon']."' class='serverimage'></a>";
+                        echo "<a href='server.php?server=".$row['serverID']."'><img src='usersimgs/".$row['server_icon']."' class='serverimage'></a>";
                         echo "</div>";
                     }
                 }
