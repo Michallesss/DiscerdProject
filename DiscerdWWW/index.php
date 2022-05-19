@@ -19,27 +19,28 @@
 </head>
 
 <body>
-    <div class="header">
-        <a href="index.php"><img src="imgs/transparentlogo.png"></a>
+    <div class="banner">
+        <a href="index.php"><img src="imgs/banner.png"></a>
         <ol>
-        <?php
-            if((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged']==true)) {
+            <?php
+            if((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'])) {
                 echo "<li><a href='discerd.php'><div>Open Discerd</div></a></li>";
             }
             else {
                 echo "<li><a href='login.php'><div>Login</div></a></li>";
+                echo "<li><a href='signup.php'>Sign Up</a></li>";
             }
-        ?>
+            ?>
         </ol>
     </div>
 
     <div class="content">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit sapiente fugit, similique hic adipisci voluptatem iure ratione nesciunt quod. Nihil, voluptas porro fugiat non voluptatem eos asperiores? Maxime, provident accusantium?
+
     </div>
 
     <div class="footer">
         Discerd<br>
-        By Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
+        By Michał Wieczorek, Mateusz Simkiewicz, Szymon Kulej
     </div>
 </body>
 
