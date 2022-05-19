@@ -49,7 +49,7 @@
         }
         else {
             if($is_good) {
-                if($result = $connect->query(sprintf("SELECT * FROM account WHERE login='$login'"))) {
+                if($result = $connect->query(sprintf("SELECT * FROM `account` WHERE login='$login'"))) {
                         $how_many = $result->num_rows;
                         if($how_many>0)
                         {
@@ -60,7 +60,7 @@
 
                                 //Getting account info
                                 $_SESSION['account_accountID'] = $account['accountID'];
-                                $_SESSION['account_login'] = $account['login'];
+                                /*$_SESSION['account_login'] = $account['login'];
                                 $_SESSION['account_password'] = $account['password'];
                                 $_SESSION['account_phone'] = $account['phone'];
                                 $_SESSION['account_email'] = $account['email'];
@@ -70,6 +70,7 @@
                                 $_SESSION['account_activity'] = $account['activity'];
                                 $_SESSION['account_pfp'] = $account['pfp'];
                                 $_SESSION['account_banner'] = $account['banner'];
+                                $_SESSION['account_permission_level'] = $account['permission_level'];*/
                                 
                                 unset($_SESSION['lg_login']);
                                 $result->free_result();

@@ -16,7 +16,7 @@ CREATE TABLE `account`
     `aboutme` VARCHAR(150),                             /*biography*/
     `status` VARCHAR(30),                               /*status message*/
     `activity` INT(1) DEFAULT '1',                      /*0-Offline, 1-Online, 2-Do not distrub, 3-IDle*/
-    `pfp` VARCHAR(30),                                  /*profile picture*/
+    `pfp` VARCHAR(30) DEFAULT 'default.png',            /*profile picture*/
     `banner` VARCHAR(30),                               /*profile banner*/
     /*Account permission:*/
     `permission_level` INT(2) DEFAULT '0'               /*0-normal user, 1-mod, 2-head mod, other.., 9-head admin, 10-owner*/
@@ -27,7 +27,7 @@ CREATE TABLE `group`
 (
     `groupID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `group_name` VARCHAR(50),                           
-    `group_icon` VARCHAR(30)                                   /*custom group icon/picture*/
+    `group_icon` VARCHAR(30) DEFAULT 'default.png'      /*custom group icon/picture*/
 );
 
 /*friendships and friends invites*/
@@ -53,7 +53,7 @@ CREATE TABLE `server`
 (
     `serverID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `server_name` VARCHAR(50),
-    `server_icon` VARCHAR(30),
+    `server_icon` VARCHAR(30) DEFAULT 'default.png',
     `is_public` BOOLEAN DEFAULT FALSE                                  /*is server public*/
 );
 
