@@ -53,7 +53,7 @@ CREATE TABLE `server`
 (
     `serverID` INT(11) PRIMARY KEY AUTO_INCREMENT,
     `server_name` VARCHAR(50),
-    `server_icon` VARCHAR(30) DEFAULT 'default.png',
+    `server_icon` VARCHAR(30) DEFAULT 'defaultserver.png',
     `is_public` BOOLEAN DEFAULT FALSE                                  /*is server public*/
 );
 
