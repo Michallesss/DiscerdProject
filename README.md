@@ -27,6 +27,9 @@ Folder with website images<br>
 <a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/styles">```DiscerdProject/DiscerdWWW/styles/..```</a><br>
 Folder with website stylesheets<br>
 
+##### usersimgs/..
+<a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/usersimgs">
+
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/aboutme.php">```DiscerdProject/DiscerdWWW/aboutme.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/chat.php">```DiscerdProject/DiscerdWWW/chat.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/connect.php">```DiscerdProject/DiscerdWWW/connect.php```</a><br>

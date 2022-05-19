@@ -43,8 +43,7 @@
         }
         else {
             throw new Exception($connect->error);
-        }
-
+        } 
     }
     catch(Exception $e) {
         echo "<i>Error:</i>";
