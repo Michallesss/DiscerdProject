@@ -122,17 +122,36 @@
         <?php //list of users
             $id=$_SESSION['account_accountID'];
             try{
-                if($result = $connect->query(sprintf("SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`pfp`, `account`.`banner` FROM account
+                if($result = $connect->query(sprintf("SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`aboutme`, `account`.`pfp`, `account`.`banner` FROM account
                 JOIN friendship ON account.accountID=friendship.reciverID
-                WHERE friendship.senderID='$id' AND friendship.status=1
+                WHERE friendship.senderID='$id' AND friendship.status!=0
                 UNION
-                SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`pfp`, `account`.`banner` FROM account
+                SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`aboutme`, `account`.`pfp`, `account`.`banner` FROM account
                 JOIN friendship ON account.accountID=friendship.senderID
-                WHERE friendship.reciverID='$id' AND friendship.status=1
+                WHERE friendship.reciverID='$id' AND friendship.status!=0
                 ORDER BY nickname"))) {
                     while($row=$result->fetch_assoc()) {
+                        switch($row['activity']) {
+                            case 0:
+                                $activity="<span style='color: gray;'>Offline</span>";
+                                break;
+                            case 1:
+                                $activity="<span style='color: green;'>Online</span>";
+                                break;
+                            case 2:
+                                $activity="<span style='color: red;'>Do not distrub</span>";
+                                break;
+                            case 3:
+                                $activity="<span style='color: yellow;'>IDLE</span>";
+                                break;
+                            default:
+                                $activity="<span style='color: gray;'>Offline</span>";
+                                break;
+                        }
                         echo "<div class='friendscontent'>";
-                        echo "<a href='chat.php?chat=".$row['accountID']."'>".$row['nickname']."</a>";
+                        echo "<img src='usersimgs/".$row['pfp']."' class='listimage'>";
+                        echo $row['nickname']."#".$row['accountID']."<br>";
+                        echo $activity." ".$row['status'];
                         echo "</div>";
                     }
                 }
@@ -161,13 +180,13 @@
     </div>
     <div class="content">
         <?php 
-            if($result = $connect->query(sprintf("SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`pfp` FROM account
+            if($result = $connect->query(sprintf("SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
             JOIN friendship ON account.accountID=friendship.reciverID
-            WHERE friendship.senderID='$id' AND account.activity>0 AND friendship.status=1
+            WHERE friendship.senderID='$id' AND account.activity>0 AND friendship.status!=0
             UNION
-            SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`pfp` FROM account
+            SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
             JOIN friendship ON account.accountID=friendship.senderID
-            WHERE friendship.reciverID='$id' AND account.activity>0 AND friendship.status=1
+            WHERE friendship.reciverID='$id' AND account.activity>0 AND friendship.status!=0
             ORDER BY nickname;"))) {
                 while($row=$result->fetch_assoc()) {
                     switch($row['activity']) {
@@ -187,9 +206,10 @@
                             $activity="<span style='color: gray;'>Offline</span>";
                             break;
                     }
-                    echo "<div>";
-                    echo "<a href='chat.php?chat=".$row['accountID']."'>".$row['nickname']."</a><br>";
-                    echo $activity." ".$row['status'];
+                    echo "<div class='friendscontent'>";
+                        echo "<img src='usersimgs/".$row['pfp']."' class='friendsimage'>";
+                        echo $row['nickname']."#".$row['accountID']."<br>";
+                        echo $activity." ".$row['status']." ".$row['aboutme'];
                     echo "</div>";
                 }
             }
