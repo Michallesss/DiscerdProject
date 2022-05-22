@@ -5,6 +5,7 @@
         header('Location" index.php');
         exit();
     }
+    //sprawdzać czy to twoje konto
 ?>
 
 <!DOCTYPE html>

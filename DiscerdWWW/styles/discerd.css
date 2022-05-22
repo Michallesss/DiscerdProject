@@ -1,7 +1,7 @@
 html, body { 
     color: #ffffff;
-    height: 100%; 
-    margin: 0 !important;
+    max-width: 100%;
+    height: 100%;
 }
 
 a {
@@ -128,7 +128,32 @@ ol > li:hover > a {
     border: 1px solid #000000;
 }
 
-.friendsimage:hover {
+.friendscontent:hover img {
+    border-radius: 20%;
+}
+
+.friendslistcontent {
+    padding: 1%;
+    border-bottom: 1px solid #40444b;
+    border-radius: 50px;
+    margin: 1%; /*zmienić to tylko na padding top i bottom*/
+}
+
+.friendslistcontent:hover {
+    background-color: #40444b;
+}
+
+.friendslistimage {
+    padding: 0.5%;
+    float: left;
+    width: 20%;
+    height: 80%;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.friendslistcontent:hover img {
     border-radius: 20%;
 }
 

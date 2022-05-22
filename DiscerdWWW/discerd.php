@@ -104,7 +104,7 @@
                 WHERE server_group_account.accountID='$id';"))) { 
                     while($row=$result->fetch_assoc()) {
                         echo "<div class='servercontent'>";
-                        echo "<a href='server.php?server=".$row['serverID']."'><img alt='".$row['server_name']."' src='usersimgs/".$row['server_icon']."' class='serverimage'></a>";
+                            echo "<a href='server.php?server=".$row['serverID']."'><img alt='".$row['server_name']."' src='usersimgs/".$row['server_icon']."' class='serverimage'></a>";
                         echo "</div>";
                     }
                 }
@@ -148,10 +148,10 @@
                                 $activity="<span style='color: gray;'>Offline</span>";
                                 break;
                         }
-                        echo "<div class='friendscontent'>";
-                        echo "<img src='usersimgs/".$row['pfp']."' class='listimage'>";
-                        echo $row['nickname']."#".$row['accountID']."<br>";
-                        echo $activity." ".$row['status'];
+                        echo "<div class='friendslistcontent'>";
+                            echo "<img src='usersimgs/".$row['pfp']."' class='friendslistimage'>";
+                            echo $row['nickname']."#".$row['accountID']."<br>";
+                            echo $activity." ".$row['status'];
                         echo "</div>";
                     }
                 }
@@ -163,8 +163,10 @@
                 JOIN server_group_account ON `group`.groupID=server_group_account.groupID
                 WHERE server_group_account.accountID='$id'"))) {
                     while($row=$result->fetch_assoc()) {
-                        echo "<div class='friendscontent'>";
-                        echo "<a href='group.php?group=".$row['groupID']."'>".$row['group_name']."</a>";
+                        echo "<div class='friendslistcontent'>";
+                            echo "<img src='usersimgs/".$row['group_icon']."' class='friendslistimage'>";
+                            echo "<a href='group.php?group=".$row['groupID']."'>".$row['group_name']."</a><br>";
+                            echo "<span style='color: gray;'>group</span>";
                         echo "</div>";
                     }
                 }
@@ -207,9 +209,9 @@
                             break;
                     }
                     echo "<div class='friendscontent'>";
-                        echo "<img src='usersimgs/".$row['pfp']."' class='friendsimage'>";
-                        echo $row['nickname']."#".$row['accountID']."<br>";
-                        echo $activity." ".$row['status']." ".$row['aboutme'];
+                        echo "<a href='chat.php?chat=".$row['accountID']."'><img src='usersimgs/".$row['pfp']."' class='friendsimage'>";
+                        echo $row['nickname']."#".$row['accountID']."</a><span style='float: right;'><a href='chat.php?chat=".$row['accountID']."'>Messages</a> <a href='profile.php?id=".$row['accountID']."'>Profile</a></span><br>";
+                        echo $activity." ".$row['status']." <span style='color: gray;'>".$row['aboutme']."</span>";
                     echo "</div>";
                 }
             }

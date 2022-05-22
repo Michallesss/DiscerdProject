@@ -69,24 +69,6 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" href="imgs/icon.ico">
-
-    <style>
-        .banner {
-            background-image: url('imgs/icon.ico');
-            background-size: cover;
-            min-width: 25%;
-            width: 25%;
-            max-width: 25%;
-        }
-
-        .pfp {
-            background-image: url('imgs/icon.ico');
-            background-size: cover;
-            min-width: 5%;
-            width: 5%;
-            max-width: 5%;
-        }
-    </style>
 </head>
 
 <body>
