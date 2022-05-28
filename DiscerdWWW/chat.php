@@ -69,10 +69,12 @@
 
 <body>
     <div class="banner">
-        <?php 
-            echo "<a href='profile.php?id=$id'>".$nick."</a>";
-        ?>
-        <a href="discerd.php">Back</a>
+        <a href="discerd.php"><img src="imgs/banner.png"></a>
+        <ol>
+            <?php
+                echo "<li><a href='profile.php?id=$id'>".$nick."</a></li>";
+            ?>
+        </ol>
     </div>
     <div class="servers">
         <?php //list of servers
@@ -103,7 +105,7 @@
     </div>
     <div class="friends">
         <?php //list of users
-            try{
+            try {
                 if($result = $connect->query(sprintf("SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`aboutme`, `account`.`pfp`, `account`.`banner` FROM account
                 JOIN friendship ON account.accountID=friendship.reciverID
                 WHERE friendship.senderID='$accountID' AND friendship.status!=0
@@ -165,13 +167,13 @@
     <div class="content">
         <?php //chat
         try {
-            if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
+            if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`accountID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
             JOIN account ON account.accountID=message.senderID
             WHERE (`message`.senderID='$accountID' AND `message`.recipientID='$id') OR (`message`.senderID='$id' AND `message`.recipientID='$accountID')
             ORDER BY `messageID` ASC"))) {
                 while($row=$result->fetch_assoc()) {
                     echo "<div class='message'>";
-                    echo "<b>".$row['nickname']."</b> <i><sup>".$row['message_date']."</sup></i>"; 
+                    echo "<a herf='profile.php?id=".$row['accountID']."'><b>".$row['nickname']."</b></a> <i><sup>".$row['message_date']."</sup></i>"; 
                     if($accountID==$row['senderID']) {
                         echo " <a href='actions/deletemessage.php?id=".$row['messageID']."&chat=".$id."'>Delete</a>";
                     }

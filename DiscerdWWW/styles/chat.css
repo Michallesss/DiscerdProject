@@ -174,7 +174,7 @@ ol > li:hover > a {
 .inputBar {
     height: 5%;
     width: 75%;
-    background-color: black;
+    background-color: #202225;
     float: left;
 }
 
@@ -188,8 +188,8 @@ form {
 
 input[type=text] {
     width: 89%;
-    background-color: #909090;
-    border: 1px solid #505050;
+    background-color: #a5a5a5;
+    border: 1px solid #5e5e5e;
     border-radius: 5px;
 }
 

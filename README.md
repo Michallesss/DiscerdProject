@@ -54,7 +54,7 @@ Folder with website stylesheets<br>
 
 ## To Do List: (```to do```-all is to do; ```css```-only css is to do; ```php```-only php is to do; ```tocre```-to create; ```toinc```-to incluide)
 ```aboutme.php``` (to do)<br>
-```chat.php``` (css)<br>
+```chat.php```<br>
 ```connect.php```<br>
 ```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
 ```createinvite.php``` (css)<br>
@@ -64,7 +64,7 @@ Folder with website stylesheets<br>
 ```deletemessage.php```<br>
 ```discerd.php``` (css)<br>
 ```forgotpass.php```<br>
-```group.php``` (css)<br>
+```group.php```<br>
 ```index.php``` (css)<br>
 ```invite.php```<br>
 ```logging.php```<br>
