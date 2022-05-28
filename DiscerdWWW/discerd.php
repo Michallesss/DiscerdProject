@@ -82,7 +82,7 @@
 
 <body>
     <div class="banner">
-        <a href="index.php"><img src="imgs/banner.png"></a>
+        <a href="discerd.php"><img src="imgs/banner.png"></a>
         <ol>
             <?php 
                 if($_SESSION['account_permission_level']>0) {
@@ -96,7 +96,6 @@
         </ol>
     </div>
     <div class="servers">
-        <div class="servercontent" style="margin-bottom: 15%;"><a href="discerd.php"><img src="imgs/logo.png"></a></div>
         <?php //list of servers
             try {
                 if($result = $connect->query(sprintf("SELECT server.serverID, server.server_name, server.server_icon FROM server
@@ -104,7 +103,7 @@
                 WHERE server_group_account.accountID='$id';"))) { 
                     while($row=$result->fetch_assoc()) {
                         echo "<div class='servercontent'>";
-                            echo "<a href='server.php?server=".$row['serverID']."'><img alt='".$row['server_name']."' src='usersimgs/".$row['server_icon']."' class='serverimage'></a>";
+                            echo "<a href='server.php?server=".$row['serverID']."'><img alt='".$row['server_name']."' src='usersimgs/".$row['server_icon']."' class='serverimage' title='".$row['server_name']."'></a>";
                         echo "</div>";
                     }
                 }
@@ -149,8 +148,8 @@
                                 break;
                         }
                         echo "<div class='friendslistcontent'>";
-                            echo "<img src='usersimgs/".$row['pfp']."' class='friendslistimage'>";
-                            echo $row['nickname']."#".$row['accountID']."<br>";
+                            echo "<a href='chat.php?chat=".$row['accountID']."'><img src='usersimgs/".$row['pfp']."' class='friendslistimage'>";
+                            echo $row['nickname']."#".$row['accountID']."</a><br>";
                             echo $activity." ".$row['status'];
                         echo "</div>";
                     }
@@ -164,8 +163,8 @@
                 WHERE server_group_account.accountID='$id'"))) {
                     while($row=$result->fetch_assoc()) {
                         echo "<div class='friendslistcontent'>";
-                            echo "<img src='usersimgs/".$row['group_icon']."' class='friendslistimage'>";
-                            echo "<a href='group.php?group=".$row['groupID']."'>".$row['group_name']."</a><br>";
+                            echo "<a href='group.php?group=".$row['groupID']."'><img src='usersimgs/".$row['group_icon']."' class='friendslistimage'>";
+                            echo $row['group_name']."</a><br>";
                             echo "<span style='color: gray;'>group</span>";
                         echo "</div>";
                     }
@@ -181,7 +180,7 @@
         ?>
     </div>
     <div class="content">
-        <?php 
+        <?php //list of online friends
             if($result = $connect->query(sprintf("SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
             JOIN friendship ON account.accountID=friendship.reciverID
             WHERE friendship.senderID='$id' AND account.activity>0 AND friendship.status!=0

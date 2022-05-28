@@ -54,7 +54,7 @@ Folder with website stylesheets<br>
 
 ## To Do List: (```to do```-all is to do; ```css```-only css is to do; ```php```-only php is to do; ```tocre```-to create; ```toinc```-to incluide)
 ```aboutme.php``` (to do)<br>
-```chat.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
+```chat.php``` (css)<br>
 ```connect.php```<br>
 ```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
 ```createinvite.php``` (css)<br>
@@ -63,8 +63,8 @@ Folder with website stylesheets<br>
 ```deleteaccount.php``` (to do)<br>
 ```deletemessage.php```<br>
 ```discerd.php``` (css)<br>
-```forgotpass.php``` (to do)<br>
-```group.php``` (css) (zmodyfikować wyświetlanie i insertowanie daty)<br>
+```forgotpass.php```<br>
+```group.php``` (css)<br>
 ```index.php``` (css)<br>
 ```invite.php```<br>
 ```logging.php```<br>
@@ -76,7 +76,7 @@ Folder with website stylesheets<br>
 ```requests.php``` (css)<br>
 ```search.php``` (css)<br>
 ```send```<br>
-```server.php``` (to do) (zmodyfikować wyświetlanie i insertowanie daty)<br>
+```server.php``` (to do)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
 //and I can but I don't want to do: permission, emojis, roles and invites using `invite` table. Maybe later
