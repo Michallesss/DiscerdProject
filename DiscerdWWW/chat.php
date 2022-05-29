@@ -194,8 +194,7 @@
     </div>
     <div class="inputBar">
         <form action="actions/send.php" method="post">
-            <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''"
-                onblur="this.placeholder='Type here...'">
+            <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
             <input type="hidden" value="<?php echo $id; ?>" name="chat">
             <input type="submit" value="send" name="submit">
         </form>
