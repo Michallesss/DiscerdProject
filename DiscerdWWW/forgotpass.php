@@ -16,11 +16,17 @@
     <title>Discer | Forgot Password</title>
     
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/forgot.css">
+    <link rel="stylesheet" href="styles/discerd.css">
     <link rel="icon" href="imgs/icon.ico">
 </head>
 
 <body>
+    <div class="banner">
+        <a href="discerd.php"><img src="imgs/banner.png"></a>
+        <ol>
+            <li><a href="createrequest.php">Send Invite</a></li>
+        </ol>
+    </div>
     <img src="imgs/transparentlogo.png" width="500px" height="500px" style="float: left;">
     <h1>Option temporary unavailable</h1>
     <h2>Sorry :(</h2>
