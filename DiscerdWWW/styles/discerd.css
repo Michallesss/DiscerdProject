@@ -34,7 +34,6 @@ ol {
     font-size: 115%;
     line-height: 50%;
     float: right;
-    display: inline-block;
 }
 
 ol > li {
