@@ -22,12 +22,10 @@
                 $connect->close();
                 exit();
             }
-            $result = $connect->query("SELECT server.serverID, server.server_name FROM server
+            if(!$result = $connect->query("SELECT server.serverID, server.server_name FROM server
             JOIN server_group_account ON server.serverID=server_group_account.serverID
             JOIN account ON server_group_account.accountID=account.accountID
-            WHERE account.accountID='$accountID'");
-
-            if(!$result) {
+            WHERE account.accountID='$accountID'")) {
                 throw new Exception($connect->error);
             }
         }
