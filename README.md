@@ -65,7 +65,7 @@ Folder with website stylesheets<br>
 ```discerd.php``` (css)<br>
 ```forgotpass.php```<br>
 ```group.php```<br>
-```index.php``` (css)<br>
+```index.php```<br>
 ```invite.php```<br>
 ```logging.php```<br>
 ```login.php``` (css)<br>
@@ -74,7 +74,7 @@ Folder with website stylesheets<br>
 ```registering.php```<br>
 ```requestaction.php```<br>
 ```requests.php``` (css)<br>
-```search.php``` (css)<br>
+```search.php```<br>
 ```send```<br>
 ```server.php``` (to do)<br>
 ```signup.php``` (css)<br>
