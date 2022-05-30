@@ -16,13 +16,13 @@
 
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
-    try {
+    //try {
         $connect = @new mysqli($host, $user, $pass, $database);
         if($connect->connect_errno!=0) {
             throw new Exception($connect->mysqli_connect_errno());
         }
         
-        //wybieranie servera jeśli podane jest id!!!
+        /*//wybieranie servera jeśli podane jest id!!!
         if((!isset($_GET['channel'])) || ($_GET['channel']=="")) {
             if((!isset($_GET['server'])) || ($_GET['server']=="")) {
                 //nic nie jest podane
@@ -34,16 +34,25 @@
                 //jest podane id servera ale nie ma id kanału
                 $serverid=$_GET['server'];
 
-                /*if($result=$connect->query(sprintf("...")))
+                if($result=$connect->query(sprintf("SELECT MIN(`channel`.`channelID`), `channel`.`name`, `channel`.`type` FROM `channel`
+                JOIN `category` ON `category`.`categoryID` = `channel`.`categoryID`
+                JOIN `server` ON `server`.`serverID` = `category`.`serverID`
+                WHERE `server`.`serverID`='$serverid';")))
                 {
                     $how_many=$result->num_rows;
                     if($how_many>0) {
                         $channelid=$_GET['channel'];
+                        header('Location: server.php?server='.$serverid.'&channel='.$channelid.'');
+                        //$connect->close();
+                        //exit();
                     }
                     else {
-                        //to samo co w lini 30 (czyli to wybieranie pierwszego kanału na serverze)
+                        //to samo co w lini 30 (czyli to wybieranie pierwszego kanału na serverze
+                        header('Location: discerd.php');
+                        $connect->close();
+                        exit();
                     }
-                }*/  
+                }
             }
         }
         else {
@@ -52,9 +61,12 @@
                 $channelid=$_GET['channel'];
             }
             else {
-                //podane jest id servera jak i kanału
+                //podane jest id servera jak i kanału(wszystko)
                 $channelid=$_GET['channel'];
                 $serverid=$_GET['server'];
+                header('Location: server.php?server='.$serverid.'&channel='.$channelid.'');
+                $connect->close();
+                exit();
             }
         }
 
@@ -85,7 +97,7 @@
         echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
         $connect->close();
     }
-?>
+*/?>
 
 <!DOCTYPE html>
 <html lang="en">
