@@ -20,7 +20,7 @@
 
 <body>
     <div class="banner">
-        <a href="index.php"><img src="imgs/banner.png"></a>
+        <a href="discerd.php"><img src="imgs/banner.png"></a>
         <ol>
             <?php
             if((isset($_SESSION['is_logged'])) && ($_SESSION['is_logged'])) {
@@ -33,11 +33,9 @@
             ?>
         </ol>
     </div>
-
     <div class="content">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates aspernatur qui eligendi, sunt beatae ratione quisquam adipisci numquam molestiae recusandae, quod rerum a sequi deserunt officiis eaque mollitia inventore itaque.
     </div>
-
     <div class="footer">
         Discerd<br>
         By Michał Wieczorek, Mateusz Simkiewicz, Szymon Kulej
