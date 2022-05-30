@@ -1,16 +1,18 @@
 USE `DiscerdDB`;
 
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`, `permission_level`)
-VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', 'admin', 'Hi, Im admin', 'programming', NULL, NULL, NULL, '10'); /*admin, admin*/
+VALUES (NULL, 'admin', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', NULL, 'discerd@discerd.pl', 'admin', 'Hi, Im admin', 'programming', '1', 'default.png', NULL, '10'); /*admin, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`, `permission_level`)
-VALUES (NULL, 'Mikael', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', NULL, NULL, NULL); /*Miakel, admin*/
+VALUES (NULL, 'Mikael', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '123456789', 'michalw@discerd.pl', 'Mikael', 'a jak pan jezus powiedział?', NULL, '1', 'default.png', NULL, NULL); /*Miakel, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`, `permission_level`)
-VALUES (NULL, 'Szymon', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '987654321', 'szymonk@discerd.pl', 'dhorbon', 'tak jak pan jezus powiedział', 'programming...', '2', NULL, NULL, NULL); /*Szymon, admin*/
+VALUES (NULL, 'Szymon', '$2y$10$5CwHRS6LOUd1kabLN2XOre8L8qHvap95y6IndkODf0jsYH7oQ/NhO', '987654321', 'szymonk@discerd.pl', 'dhorbon', 'tak jak pan jezus powiedział', 'programming...', '2', 'default.png', NULL, NULL); /*Szymon, admin*/
 INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`, `permission_level`)
-VALUES (NULL, 'maciekcieslak', '$2y$10$Ivl8Oit62yRcDIO7q0TF9eD8KKoEvPcNBTQiziYA4CegDC/aiDEc2', '519643782', 'promaciek@wp.pl', 'dzikimacius', 'kocham pana szczepanika', 'hej bejb', NULL, NULL, NULL, NULL); /*maciekcielak, maciuskox*/
+VALUES (NULL, 'maciekcieslak', '$2y$10$Ivl8Oit62yRcDIO7q0TF9eD8KKoEvPcNBTQiziYA4CegDC/aiDEc2', '519643782', 'promaciek@wp.pl', 'dzikimacius', 'kocham pana szczepanika', 'hej bejb', NULL, 'default.png', NULL, NULL); /*maciekcielak, maciuskox*/
+INSERT INTO `account` (`accountID`, `login`, `password`, `phone`, `email`, `nickname`, `aboutme`, `status`, `activity`, `pfp`, `banner`, `permission_level`) 
+VALUES (NULL, 'adamek123', '$2y$10$JzZJKgeugZdNATdeiqqqOuWyjMLm5lzu0pLchSNgCz65SgnyBwPuW', NULL, 'adam@interia.pl', 'adam', 'jestem adam', NULL, '0', 'default.png', NULL, '0'); /*adamek123, adamek123*/
 
 INSERT INTO `group` (`groupID`, `group_name`, `group_icon`)
-VALUES (NULL, 'friends', NULL);
+VALUES (NULL, 'friends', 'default.png');
 
 INSERT INTO `server_group_account` (`server_group_accountID`, `serverID`, `groupID`, `accountID`, `muted`)
 VALUES (NULL, NULL, '1', '1', '1');
@@ -20,15 +22,25 @@ VALUES (NULL, NULL, '1', '2', '0');
 INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
 VALUES (NULL, '1', '2', '1');
 INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
+VALUES (NULL, '1', '3', '1');
+INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
+VALUES (NULL, '1', '5', '1');
+INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
+VALUES (NULL, '4', '1', '0');
+INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
 VALUES (NULL, '3', '1', '0');
 INSERT INTO `friendship` (`friendshipID`, `senderID`, `reciverID`, `status`)
 VALUES (NULL, '2', '1', '0');
 
 INSERT INTO `server` (`serverID`, `server_name`, `server_icon`, `is_public`)
-VALUES (NULL, 'DiscerdAnnouncements', NULL, '1');
+VALUES (NULL, 'DiscerdAnnouncements', 'defaultserver.png', '1');
+INSERT INTO `server` (`serverID`, `server_name`, `server_icon`, `is_public`)
+VALUES (NULL, 'deeznuts', 'defaultserver.png', '1');
 
 INSERT INTO `server_group_account` (`server_group_accountID`, `serverID`, `groupID`, `accountID`, `muted`)
 VALUES (NULL, '1', NULL, '1', '0');
+INSERT INTO `server_group_account` (`server_group_accountID`, `serverID`, `groupID`, `accountID`, `muted`, `status`)
+VALUES (NULL, '2', NULL, '1', '0', '0');
 INSERT INTO `server_group_account` (`server_group_accountID`, `serverID`, `groupID`, `accountID`, `muted`)
 VALUES (NULL, '1', NULL, '2', '0');
 INSERT INTO `server_group_account` (`server_group_accountID`, `serverID`, `groupID`, `accountID`, `muted`)
