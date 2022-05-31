@@ -134,8 +134,8 @@
                         if($result2=$connect->query(sprintf("SELECT * FROM `channel` WHERE `channel`.`categoryID`='$categoryid' ORDER BY `weight`"))) {
                             while($row2=$result2->fetch_assoc()) {
                                 $thischannelid=$row2['channelID'];
-                                if($row2['type']=="1") echo "<div style='margin: 2% 5% 2% 5%;'><a href='server.php?server=$serverid&channel=$thischannelid'>".$row2['name']."</a></div>";
-                                else echo "<div style='margin: 2% 5% 2% 5%;'><a href=''>".$row2['name']."</a></div>";
+                                if($row2['type']=="1") echo "<div style='margin: 2% 0 2% 0; text-align: center;'><a href='server.php?server=$serverid&channel=$thischannelid'>".$row2['name']."</a></div>";
+                                else echo "<div style='margin: 2% 0 2% 0; text-align: center;'><a href=''>".$row2['name']."</a></div>";
                                 //tutaj trochę na odwal się ale to trzeba by było już ogarnać czat głosowy
                             }
                         }
