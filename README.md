@@ -13,6 +13,7 @@ Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 ##### actions/..
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/changepass.php">```DiscerdProject/DiscerdWWW/actions/changepass.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/deletemessage.php">```DiscerdProject/DiscerdWWW/actions/deletemessage.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/functions.php"></a>```DiscerdProject/DiscerdWWW/actions/functions.php```<br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/logout.php">```DiscerdProject/DiscerdWWW/actions/logout.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/send.php">```DiscerdProject/DiscerdWWW/actions/send.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/upload.php">```DiscerdProject/DiscerdWWW/actions/upload.php```</a><br>
