@@ -16,11 +16,19 @@
     <title>Discerd | Sign up</title>
 
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/discerd.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" href="imgs/icon.ico">
 </head>
 
 <body>
+    <div class="banner">
+        <a href="discerd.php"><img src="imgs/banner.png"></a>
+        <ol>
+            <li><a href='login.php'><div>Login</div></a></li>
+            <li><a href='signup.php'>Sign Up</a></li>
+        </ol>
+    </div>
     <div class="form">
         <form action="registering.php" method="POST">
             <input type="login" name="rg_login" value="<?php if(isset($_SESSION['rg_login'])) echo$_SESSION['rg_login']; ?>" placeholder="Login*" onfocus="this.placeholder=''" onblur="this.placeholder='Login*'">

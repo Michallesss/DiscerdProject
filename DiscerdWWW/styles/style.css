@@ -4,24 +4,8 @@
 body, html {
     font-family: 'Ubuntu', sans-serif;
     margin: 0 !important;
-    background-color: gray;
+    background-color: #36393f;
 }
-
-/*.header {
-    background-color: red;
-    text-align: right;
-}
-
-.content {
-    background-color: green;
-    padding: 2% 2% 2% 2%;
-    margin: 2% 3% 2% 3%;
-}
-
-.footer {
-    background-color: blue;
-    text-align: center;
-}*/
 
 .error {
     color: #ff0000;
