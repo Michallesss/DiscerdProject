@@ -85,7 +85,18 @@ INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `chann
 VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:51:00.000000', 'dobrze');
 INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
 VALUES (NULL, '2', '1', NULL, NULL, '2022-04-03 01:51:00.000000', 'a u ciebie?');
-
+INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
+VALUES (NULL, '1', '3', NULL, NULL, '2022-04-03 01:51:00.000000', '...od mojego kodu, naprawdę chcesz zeby jakies');
+INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
+VALUES (NULL, '1', '3', NULL, NULL, '2022-04-03 01:51:00.000000', '...literki były generowane przez skrypt w cpp?');
+INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
+VALUES (NULL, '3', '1', NULL, NULL, '2022-04-03 01:51:00.000000', 'tak');
+INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
+VALUES (NULL, '1', NULL, '1', NULL, '2022-04-03 01:51:00.000000', 'siema');
+INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
+VALUES (NULL, '1', NULL, NULL, '1', '2022-05-31 22:39:07', 'pov: nikt cie nie lubi');
+INSERT INTO `message` (`messageID`, `senderID`, `recipientID`, `groupID`, `channelID`, `message_date`, `content`)
+VALUES (NULL, '1', NULL, NULL, '5', '2022-05-31 22:40:01', 'aha?');
 
 INSERT INTO `permission` (`permissionID`,`permission_name`,`permission_value`,`permission_desc`)
 VALUES

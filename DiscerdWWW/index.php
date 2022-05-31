@@ -35,6 +35,7 @@
     </div>
     <div class="content">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates aspernatur qui eligendi, sunt beatae ratione quisquam adipisci numquam molestiae recusandae, quod rerum a sequi deserunt officiis eaque mollitia inventore itaque.
+            <p>Zachęcamy pana do skorzystania z konta testowego o loginie admin i haśle admin</p>
     </div>
     <div class="footer">
         Discerd<br>
