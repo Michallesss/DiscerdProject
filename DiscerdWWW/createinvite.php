@@ -1,4 +1,6 @@
+<!--Creating invites to a group/server-->
 <?php
+    //dodać kożystanie przy tworzeniu zaproszeń z tabeli invite (tu i w invite.php)
     session_start();
     include('actions/functions.php');
 
@@ -54,7 +56,7 @@
     </div>
     <div class="content">
         <div class="form">
-            <form method="post" action="invite.php">
+            <form method="get" action="invite.php">
                 <label for="serverID">Server/Group:</label>
                 <select name="serverID" id="serverID">
                     <option value="NULL">Server..</option>
