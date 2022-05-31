@@ -50,6 +50,8 @@ INSERT INTO `category` (`categoryID`, `serverID`, `name`, `weight`)
 VALUES (NULL, '1', 'text-channels', '1');
 INSERT INTO `category` (`categoryID`, `serverID`, `name`, `weight`)
 VALUES (NULL, '1', 'voice-channels', '2');
+INSERT INTO `category` (`categoryID`, `serverID`, `name`, `weight`)
+VALUES (NULL, '2', 'all', NULL);
 INSERT INTO `channel` (`channelID`, `categoryID`, `name`, `weight`, `type`)
 VALUES (NULL, '1', 'main', '1', '1');
 INSERT INTO `channel` (`channelID`, `categoryID`, `name`, `weight`, `type`)
@@ -58,6 +60,10 @@ INSERT INTO `channel` (`channelID`, `categoryID`, `name`, `weight`, `type`)
 VALUES (NULL, '2', 'vc1', '1', '2');
 INSERT INTO `channel` (`channelID`, `categoryID`, `name`, `weight`, `type`)
 VALUES (NULL, '2', 'vc2', '2', '2');
+INSERT INTO `channel` (`channelID`, `categoryID`, `name`, `weight`, `type`)
+VALUES (NULL, '3', 'text', NULL, '1');
+INSERT INTO `channel` (`channelID`, `categoryID`, `name`, `weight`, `type`)
+VALUES (NULL, '3', 'vc', NULL, '2');
 
 INSERT INTO `invite` (`inviteID`, `serverID`, `expire_date`, `create_date`, `accountID`)
 VALUES (NULL, '1', '2032-06-23 01:27:49', '2022-04-03 02:27:49.000000', '1');
