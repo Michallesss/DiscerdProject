@@ -1,33 +1,20 @@
 <?php
     session_start();
+    include('actions/functions.php');
 
     if((!isset($_SESSION['is_logged'])) || ($_SESSION['is_logged']!=true)) {
         header('Location: index.php');
         exit();
     }
 
+    $accountID=$_SESSION['account_accountID'];
+    
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
-
-    $accountID=$_SESSION['account_accountID'];
-
     try {
         $connect = @new mysqli($host, $user, $pass, $database);
         if($connect->connect_errno!=0) {
             throw new Exception(mysqli_connect_errno());
-        }
-        else {
-            if(!isset($_SESSION['account_accountID'])) {
-                echo "<div class='error'>Something is wrong with your account. Try to logout and log in again</div>";
-                $connect->close();
-                exit();
-            }
-            if(!$result = $connect->query("SELECT server.serverID, server.server_name FROM server
-            JOIN server_group_account ON server.serverID=server_group_account.serverID
-            JOIN account ON server_group_account.accountID=account.accountID
-            WHERE account.accountID='$accountID'")) {
-                throw new Exception($connect->error);
-            }
         }
     }
     catch(Exception $e) {
@@ -46,32 +33,72 @@
     <title>Discerd | Create invite</title>
     
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/discerd.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" href="imgs/icon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="form">
-        <form method="get" action="invite.php">
-            <label for="serverID">Server:</label>
-            <select name="serverID" id="serverID">
-                <?php 
-                    while($row=$result->fetch_assoc()) {
-                        $serverID=$row['serverID'];
-                        $server_name=$row['server_name'];
-                        echo "<option value='$serverID'>$server_name</option>";
-                    }
-                ?>
-            </select>
-            <input type="text" name="message" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'">
-            Click create and copy the link
-            <input type="submit" value="create invite">
-            <a href="discerd.php" style="float: left;">Back</a>
-        </form>
+    <div class="banner">
+        <a href="discerd.php"><img src="imgs/banner.png"></a>
+    </div>
+    <div class="servers">
+        <?php //list of servers
+            servers($accountID, $connect);
+        ?>
+    </div>
+    <div class="friends">
+        <?php //list of users
+            friends($accountID, $connect);
+        ?>
+    </div>
+    <div class="content">
+        <div class="form">
+            <form method="post" action="invite.php">
+                <label for="serverID">Server/Group:</label>
+                <select name="serverID" id="serverID">
+                    <option value="NULL">Server..</option>
+                    <?php
+                        try {
+                            if(!$result = $connect->query("SELECT `server`.`serverID`, `server`.`server_name` FROM `server`
+                            JOIN `server_group_account` ON `server`.`serverID`=`server_group_account`.`serverID`
+                            JOIN `account` ON `server_group_account`.`accountID`=`account`.`accountID`
+                            WHERE `account`.`accountID`='$accountID'")) {
+                                throw new Exception($connect->error);
+                            }
+                            while($row=$result->fetch_assoc()) {
+                                $serverID=$row['serverID'];
+                                $server_name=$row['server_name'];
+                                echo "<option value='$serverID'>$server_name</option>";
+                            }
+                    ?>
+                </select>
+                <select name="groupID" id="groupID">
+                    <option value="NULL">Group</option>
+                    <?php
+                            if(!$result = $connect->query("SELECT `group`.`groupID`, `group`.`group_name` FROM `group`
+                            JOIN `server_group_account` ON `group`.`groupID`=`server_group_account`.`groupID`
+                            JOIN `account` ON `server_group_account`.`accountID`=`account`.`accountID`
+                            WHERE `account`.`accountID`='$accountID'")) { 
+                                throw new Exception($connect->error);
+                            }
+                            while($row=$result->fetch_assoc()) {
+                                $serverID=$row['groupID'];
+                                $server_name=$row['group_name'];
+                                echo "<option value='$serverID'>$server_name</option>";
+                            }
+                        }
+                        catch(Exception $e) {
+                            echo "<i>Error:</i>";
+                            echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+                        }
+                    ?>
+                </select>
+                <input type="text" name="message" placeholder="Message" onfocus="this.placeholder=''" onblur="this.placeholder='Message'">
+                Click create and copy the link
+                <input type="submit" value="create invite">
+            </form>
+        </div>
     </div>
 </body>
 
