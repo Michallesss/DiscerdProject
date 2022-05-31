@@ -1,5 +1,5 @@
 # DiscerdProject
-# Version: pre-alpha
+# Version: beta
 
 Discerd Project<br>
 Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.

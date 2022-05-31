@@ -162,3 +162,9 @@ ol > li:hover > a {
     background-color: #36393f;
     float: left;
 }
+
+.category {
+    padding: 15% 0 15% 0;
+    text-align: center;
+    border-bottom: 1px solid #404040;
+}

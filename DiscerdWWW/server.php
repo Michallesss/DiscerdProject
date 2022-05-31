@@ -3,10 +3,6 @@
     session_start();
     include('actions/functions.php');
 
-    //test data:
-    $serverid=1;
-    $channelid=1;
-
     if((!isset($_SESSION['is_logged'])) || (!$_SESSION['is_logged'])) {
         header('Location: index.php');
         exit();
@@ -17,13 +13,13 @@
 
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
-    //try {
+    try {
         $connect = @new mysqli($host, $user, $pass, $database);
         if($connect->connect_errno!=0) {
             throw new Exception($connect->mysqli_connect_errno());
         }
         
-        /*//wybieranie servera jeśli podane jest id!!!
+        //wybieranie servera jeśli podane jest id!!!
         if((!isset($_GET['channel'])) || ($_GET['channel']=="")) {
             if((!isset($_GET['server'])) || ($_GET['server']=="")) {
                 //nic nie jest podane
@@ -35,20 +31,21 @@
                 //jest podane id servera ale nie ma id kanału
                 $serverid=$_GET['server'];
 
-                if($result=$connect->query(sprintf("SELECT MIN(`channel`.`channelID`), `channel`.`name`, `channel`.`type` FROM `channel`
+                if($result=$connect->query(sprintf("SELECT MIN(`channel`.`channelID`) AS `channelID`, `channel`.`name`, `channel`.`type` FROM `channel`
                 JOIN `category` ON `category`.`categoryID` = `channel`.`categoryID`
                 JOIN `server` ON `server`.`serverID` = `category`.`serverID`
-                WHERE `server`.`serverID`='$serverid';")))
+                WHERE `server`.`serverID`='$serverid' AND `channel`.`type`='1'")))
                 {
                     $how_many=$result->num_rows;
                     if($how_many>0) {
-                        $channelid=$_GET['channel'];
+                        $row=$result->fetch_assoc();
+                        $channelid=$row['channelID'];
+                        $serverid=$_GET['server'];
                         header('Location: server.php?server='.$serverid.'&channel='.$channelid.'');
-                        //$connect->close();
-                        //exit();
+                        $connect->close();
+                        exit();
                     }
                     else {
-                        //to samo co w lini 30 (czyli to wybieranie pierwszego kanału na serverze
                         header('Location: discerd.php');
                         $connect->close();
                         exit();
@@ -65,9 +62,6 @@
                 //podane jest id servera jak i kanału(wszystko)
                 $channelid=$_GET['channel'];
                 $serverid=$_GET['server'];
-                header('Location: server.php?server='.$serverid.'&channel='.$channelid.'');
-                $connect->close();
-                exit();
             }
         }
 
@@ -98,7 +92,7 @@
         echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
         $connect->close();
     }
-*/?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +111,7 @@
     <div class="banner"><!--just header-->
         <a href="discerd.php"><img src="imgs/banner.png"></a>
         <ol>
+            <li><a href='createinvite.php'>Add member</a></li>
             <?php
                 echo "<li><a href='server.php?server=$serverid'>".$name."</a></li>";
             ?>
@@ -128,8 +123,38 @@
         ?>
     </div>
     <div class="channels">
-        <div style="padding: 15% 0 15% 0; text-align: center; border-bottom: 1px solid #404040;" title="switch to text channel"><a href="">Text Channel</a></div>
-        <div style="padding: 15% 0 15% 0; text-align: center; border-bottom: 1px solid #404040;" title="switch to voice channel"><a href="">Voice Channel</a></div>
+        <?php 
+            //list of categories and channels
+            try {
+                if($result=$connect->query(sprintf("SELECT * FROM `category` WHERE `category`.`serverID`='$serverid' ORDER BY `weight`"))) {
+                    while($row=$result->fetch_assoc()) {
+                        echo "<div class='category' style='background-color: #40444b;'>";
+                        echo $row['name'];
+                        $categoryid=$row['categoryID'];
+                        if($result2=$connect->query(sprintf("SELECT * FROM `channel` WHERE `channel`.`categoryID`='$categoryid' ORDER BY `weight`"))) {
+                            while($row2=$result2->fetch_assoc()) {
+                                $thischannelid=$row2['channelID'];
+                                if($row2['type']=="1") echo "<div style='margin: 2% 5% 2% 5%;'><a href='server.php?server=$serverid&channel=$thischannelid'>".$row2['name']."</a></div>";
+                                else echo "<div style='margin: 2% 5% 2% 5%;'><a href=''>".$row2['name']."</a></div>";
+                                //tutaj trochę na odwal się ale to trzeba by było już ogarnać czat głosowy
+                            }
+                        }
+                        else {
+                            throw new Exception($connect->error);
+                        }
+                        echo "</div>";
+                    }
+                }
+                else {
+                    throw new Exception($connect->error);
+                }
+            }
+            catch(Exception $e) {
+                echo "<i>Error:</i>";
+                echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+                $connect->close();
+            }
+        ?>
         <!--some code to voice chats:))-->
     </div>
     <div class="friends">

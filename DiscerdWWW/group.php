@@ -67,6 +67,7 @@
     <div class="banner">
     <a href="discerd.php"><img src="imgs/banner.png"></a>
         <ol>
+            <li><a href='createinvite.php'>Add member</a></li>
             <?php
                 echo "<li><a href=''>".$name."</a></li>";
             ?>
