@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('actions/functions.php');
 
     if((!isset($_SESSION['is_logged'])) || (!$_SESSION['is_logged'])) {
         header('Location: index.php');
@@ -11,7 +12,6 @@
 
     try {
         $connect = @new mysqli($host, $user, $pass, $database);
-
         if($connect->connect_errno!=0) {
             throw new Exception(mysqli_connect_errno());
         }
@@ -97,38 +97,25 @@
     </div>
     <div class="servers">
         <?php //list of servers
-            try {
-                if($result = $connect->query(sprintf("SELECT server.serverID, server.server_name, server.server_icon FROM server
-                JOIN server_group_account ON server.serverID=server_group_account.serverID
-                WHERE server_group_account.accountID='$id';"))) { 
-                    while($row=$result->fetch_assoc()) {
-                        echo "<div class='servercontent'>";
-                            echo "<a href='server.php?server=".$row['serverID']."'><img alt='".$row['server_name']."' src='usersimgs/".$row['server_icon']."' class='serverimage' title='".$row['server_name']."'></a>";
-                        echo "</div>";
-                    }
-                }
-                else {
-                    throw new Exception($connect->error);
-                }
-            }
-            catch(Exception $e) {
-                echo "<i>Error:</i>";
-                echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
-            }
+            servers($id, $connect);
         ?>
     </div>
     <div class="friends">
         <?php //list of users
-            $id=$_SESSION['account_accountID'];
-            try{
-                if($result = $connect->query(sprintf("SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`aboutme`, `account`.`pfp`, `account`.`banner` FROM account
+            friends($id, $connect);
+        ?>
+    </div>
+    <div class="content">
+        <?php //list of online friends
+            try {
+                if($result = $connect->query(sprintf("SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
                 JOIN friendship ON account.accountID=friendship.reciverID
-                WHERE friendship.senderID='$id' AND friendship.status!=0
+                WHERE friendship.senderID='$id' AND account.activity>0 AND friendship.status!=0
                 UNION
-                SELECT `account`.`accountID`, `account`.`nickname`, `account`.`status`, `account`.`activity`, `account`.`aboutme`, `account`.`pfp`, `account`.`banner` FROM account
+                SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
                 JOIN friendship ON account.accountID=friendship.senderID
-                WHERE friendship.reciverID='$id' AND friendship.status!=0
-                ORDER BY nickname"))) {
+                WHERE friendship.reciverID='$id' AND account.activity>0 AND friendship.status!=0
+                ORDER BY nickname;"))) {
                     while($row=$result->fetch_assoc()) {
                         switch($row['activity']) {
                             case 0:
@@ -147,25 +134,10 @@
                                 $activity="<span style='color: gray;'>Offline</span>";
                                 break;
                         }
-                        echo "<div class='friendslistcontent'>";
-                            echo "<a href='chat.php?chat=".$row['accountID']."'><img src='usersimgs/".$row['pfp']."' class='friendslistimage'>";
-                            echo $row['nickname']."#".$row['accountID']."</a><br>";
-                            echo $activity." ".$row['status'];
-                        echo "</div>";
-                    }
-                }
-                else {
-                    throw new Exception($connect->error);
-                }
-                        
-                if($result = $connect->query(sprintf("SELECT `group`.groupID, `group`.group_name, `group`.group_icon FROM `group`
-                JOIN server_group_account ON `group`.groupID=server_group_account.groupID
-                WHERE server_group_account.accountID='$id'"))) {
-                    while($row=$result->fetch_assoc()) {
-                        echo "<div class='friendslistcontent'>";
-                            echo "<a href='group.php?group=".$row['groupID']."'><img src='usersimgs/".$row['group_icon']."' class='friendslistimage'>";
-                            echo $row['group_name']."</a><br>";
-                            echo "<span style='color: gray;'>group</span>";
+                        echo "<div class='friendscontent'>";
+                            echo "<a href='chat.php?chat=".$row['accountID']."'><img src='usersimgs/".$row['pfp']."' class='friendsimage'>";
+                            echo $row['nickname']."#".$row['accountID']."</a><span style='float: right;'><a href='chat.php?chat=".$row['accountID']."'>Messages</a> <a href='profile.php?id=".$row['accountID']."'>Profile</a></span><br>";
+                            echo $activity." ".$row['status']." <span style='color: gray;'>".$row['aboutme']."</span>";
                         echo "</div>";
                     }
                 }
@@ -176,46 +148,6 @@
             catch(Exception $e) {
                 echo "<i>Error:</i>";
                 echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
-            }
-        ?>
-    </div>
-    <div class="content">
-        <?php //list of online friends
-            if($result = $connect->query(sprintf("SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
-            JOIN friendship ON account.accountID=friendship.reciverID
-            WHERE friendship.senderID='$id' AND account.activity>0 AND friendship.status!=0
-            UNION
-            SELECT account.`accountID`, account.`nickname`, account.`status`, account.`activity`, account.`aboutme`, account.`pfp`, account.`banner` FROM account
-            JOIN friendship ON account.accountID=friendship.senderID
-            WHERE friendship.reciverID='$id' AND account.activity>0 AND friendship.status!=0
-            ORDER BY nickname;"))) {
-                while($row=$result->fetch_assoc()) {
-                    switch($row['activity']) {
-                        case 0:
-                            $activity="<span style='color: gray;'>Offline</span>";
-                            break;
-                        case 1:
-                            $activity="<span style='color: green;'>Online</span>";
-                            break;
-                        case 2:
-                            $activity="<span style='color: red;'>Do not distrub</span>";
-                            break;
-                        case 3:
-                            $activity="<span style='color: yellow;'>IDLE</span>";
-                            break;
-                        default:
-                            $activity="<span style='color: gray;'>Offline</span>";
-                            break;
-                    }
-                    echo "<div class='friendscontent'>";
-                        echo "<a href='chat.php?chat=".$row['accountID']."'><img src='usersimgs/".$row['pfp']."' class='friendsimage'>";
-                        echo $row['nickname']."#".$row['accountID']."</a><span style='float: right;'><a href='chat.php?chat=".$row['accountID']."'>Messages</a> <a href='profile.php?id=".$row['accountID']."'>Profile</a></span><br>";
-                        echo $activity." ".$row['status']." <span style='color: gray;'>".$row['aboutme']."</span>";
-                    echo "</div>";
-                }
-            }
-            else {
-                throw new Exception($connect->error);
             }
         ?>
     </div>

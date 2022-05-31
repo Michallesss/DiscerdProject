@@ -19,6 +19,10 @@
     </head>
 
     <body>
+        <div class="banner">
+            <a href="discerd.php"><img src="imgs/banner.png"></a>
+        </div>
+        
         <h1>Beta admin panel</h1>
         <h3>Option temporary unavailable</h3>
         <a href="discerd.php">Back</a>
