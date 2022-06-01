@@ -57,6 +57,35 @@
             if((!isset($_GET['server'])) || ($_GET['server']=="")) {
                 //jest podane id kanału ale nie servera
                 $channelid=$_GET['channel'];
+                try {
+                    if($result=$connect->query(sprintf("SELECT `serverID` FROM `server`
+                    JOIN `category` ON `category`.`categoryID` = `channel`.`categoryID`
+                    JOIN `server` ON `server`.`serverID` = `category`.`serverID`
+                    WHERE `channel`.`channelid`='$channelid'"))) {
+                        $how_many=$result->num_rows;
+                        if($how_many>0) {
+                            $row=$result->fetch_assoc();
+                            $serverid=$row['serverID'];
+                            //$channelid=$row['channelID'];
+                            header('Location: server.php?server='.$serverid.'&channel='.$channelid);
+                            $connect->close();
+                            exit();
+                        }
+                        else {
+                            header('Location: discerd.php');
+                            $connect->close();
+                            exit();
+                        }
+                    }
+                    else {
+                        throw new Exception($connect->error);
+                    }
+                }
+                catch(Exception $e) {
+                    echo "<i>Error:</i>";
+                    echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
+                    $connect->close();
+                }
             }
             else {
                 //podane jest id servera jak i kanału(wszystko)
@@ -173,7 +202,7 @@
                         echo "<div class='message'>";
                         echo "<a herf='profile.php?id=".$row['accountID']."'><b>".$row['nickname']."</b></a> <i><sup>".$row['message_date']."</sup></i>"; 
                         if($accountID==$row['senderID']) {
-                            echo " <a href='actions/deletemessage.php?id=".$row['messageID']."&channel=".$channelid."'>Delete</a>";
+                            echo " <a href='actions/deletemessage.php?id=".$row['messageID']."server=".$serverid."&channel=".$channelid."'>Delete</a>";
                         }
                         echo "<br>".$row['content'];
                         echo "</div>";
@@ -194,6 +223,7 @@
         <form action="actions/send.php" method="post">
             <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
             <input type="hidden" value="<?php echo $channelid; ?>" name="channel">
+            <input type="hidden" value="<?php echo $serverid; ?>" name="server">
             <input type="submit" value="send" name="submit">
         </form>
     </div>
