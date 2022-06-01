@@ -43,6 +43,7 @@
     
     if(isset($_POST['channel'])) {
         $channelid=$_POST['channel'];
+        $serverid=$_POST['server'];
         $option="server";
     }
     else {
@@ -70,7 +71,7 @@
                     header('Location: ../group.php?group='.$groupid);
                     break;
                 case "server":
-                    header('Location: ../server.php?channel='.$channelid);
+                    header('Location: ../server.php?server='.$serverid.'&channel='.$channelid);
                     break;
             }
         }
