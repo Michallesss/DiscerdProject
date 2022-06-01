@@ -22,17 +22,15 @@
         if(isset($_GET['chat'])) {
             $id=$_GET['chat'];
             header('Location: ../chat.php?chat='.$id);
-            echo "ni";
         }
         else if(isset($_GET['group'])) {
             $id=$_GET['group'];
             header('Location: ../group.php?group='.$id);
-            echo "g";
         }
         else if(isset($_GET['channel'])) {
-            $id=$_GET['channel'];
-            header('Location: ../server.php?channel='.$id);
-            echo "er";
+            $channelid=$_GET['channel'];
+            $serverid=$_GET['server'];
+            header('Location: ../server.php?server='.$serverid.'&channel='.$channelid);
         }
     }
 
