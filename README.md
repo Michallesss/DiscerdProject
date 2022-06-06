@@ -62,7 +62,7 @@ Folder with website stylesheets<br>
 ```createrequest.php``` (css)<br>
 ```dashboard``` (to do)<br>
 ```deleteaccount.php``` (to do)<br>
-```deletemessage.php```<br>
+```deletemessage.php``` (still doesn't working for servers)<br>
 ```discerd.php``` (css)<br>
 ```forgotpass.php```<br>
 ```group.php```<br>
