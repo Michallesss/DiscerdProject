@@ -204,7 +204,7 @@
                         echo "<div class='message'>";
                         echo "<a herf='profile.php?id=".$row['accountID']."'><b>".$row['nickname']."</b></a> <i><sup>".$row['message_date']."</sup></i>"; 
                         if($accountID==$row['senderID']) {
-                            echo " <a href='actions/deletemessage.php?id=".$row['messageID']."server=".$serverid."&channel=".$channelid."'>Delete</a>";
+                            echo " <a href='actions/deletemessage.php?id=".$row['messageID']."&server=".$serverid."&channel=".$channelid."'>Delete</a>";
                         }
                         echo "<br>".$row['content'];
                         echo "</div>";
