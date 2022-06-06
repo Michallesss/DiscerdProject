@@ -58,10 +58,12 @@
                 //jest podane id kanału ale nie servera
                 $channelid=$_GET['channel'];
                 try {
-                    if($result=$connect->query(sprintf("SELECT `serverID` FROM `server`
-                    JOIN `category` ON `category`.`categoryID` = `channel`.`categoryID`
-                    JOIN `server` ON `server`.`serverID` = `category`.`serverID`
-                    WHERE `channel`.`channelid`='$channelid'"))) {
+                    if($result=$connect->query(sprintf("..."))) {
+                        /*SELECT `serverID` FROM `server`
+                        JOIN `category` ON `category`.`categoryID` = `channel`.`categoryID`
+                        JOIN `server` ON `server`.`serverID` = `category`.`serverID`
+                        WHERE `channel`.`channelid`='$channelid'*/
+                        
                         $how_many=$result->num_rows;
                         if($how_many>0) {
                             $row=$result->fetch_assoc();
