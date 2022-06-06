@@ -87,7 +87,7 @@
                             echo "<div class='friendscontent'>";
                             $id=$row['serverID'];
                             echo "<img src='usersimgs/".$row['server_icon']."' class='friendsimage'>";
-                            echo $row['server_name']."<br><a href='invite.php?serverID=".$id."&groupID=&message='><span style='text-align: right;'>Join</span></a>";
+                            echo $row['server_name']."<br><a href='invite.php?serverID=".$id."&groupID=NULL&message='><span style='text-align: right;'>Join</span></a>";
                             echo "</div>";
                         }
                     }
