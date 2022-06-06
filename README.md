@@ -3,6 +3,9 @@
 
 Discerd Project<br>
 Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
+<img src="https://cdn.discordapp.com/attachments/966375404501880922/983329788309696543/unknown.png" alt="Mainpage.png" style="display: block;"><br>
+<img src="https://cdn.discordapp.com/attachments/966375404501880922/983330241185476608/unknown.png" alt="Chat.png" style="display: block;"><br>
+<img src="https://cdn.discordapp.com/attachments/966375404501880922/983330518298931230/unknown.png" alt="Server.png" style="display: block;"><br>
 
 ## Files
 ### DiscerdDB/..
