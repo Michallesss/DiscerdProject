@@ -62,7 +62,7 @@ Folder with website stylesheets<br>
 ```chat.php```<br>
 ```connect.php```<br>
 ```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
-```createinvite.php``` (css)<br>
+```createinvite.php``` (to do)<br>
 ```createrequest.php``` (css)<br>
 ```dashboard``` (to do)<br>
 ```deleteaccount.php``` (to do)<br>
@@ -71,7 +71,7 @@ Folder with website stylesheets<br>
 ```forgotpass.php```<br>
 ```group.php```<br>
 ```index.php```<br>
-```invite.php```<br>
+```invite.php```(to do)<br>
 ```logging.php```<br>
 ```login.php``` (css)<br>
 ```logout.php```<br>
