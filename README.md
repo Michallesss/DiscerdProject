@@ -85,4 +85,4 @@ Folder with website stylesheets<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
 //and I can but I don't want to do: permission, emojis, roles.
-//Live changeing contnet with AJAX.!!!
+//Live changeing contnet with AJAX.!!! (chat, search, friends status)
