@@ -1,0 +1,1 @@
+//live friends' statuses (on discerd.php page)

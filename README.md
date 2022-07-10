@@ -15,10 +15,12 @@ Authors: Michał Wieczorek, Szymon Kulej, Mateusz Simkiewicz.
 
 ### DiscerdWWW/..
 ##### actions/..
-<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/changepass.php">```DiscerdProject/DiscerdWWW/actions/changepass.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/deletemessage.php">```DiscerdProject/DiscerdWWW/actions/deletemessage.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/functions.php">```DiscerdProject/DiscerdWWW/actions/functions.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/logout.php">```DiscerdProject/DiscerdWWW/actions/logout.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/receivechat.php">```DiscerdProject/DiscerdWWW/actions/receivechat.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/receivegroup.php">```DiscerdProject/DiscerdWWW/actions/receivegroup.php```</a><br>
+<a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/receiveserver.php">```DiscerdProject/DiscerdWWW/actions/receiveserver.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/send.php">```DiscerdProject/DiscerdWWW/actions/send.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/actions/upload.php">```DiscerdProject/DiscerdWWW/actions/upload.php```</a><br>
 (later: logging, registering)<br>
@@ -26,14 +28,17 @@ Folder with actions like uploading images<br>
 
 ##### imgs/..
 <a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/imgs">```DiscerdProject/DiscerdWWW/imgs/..```</a><br>
-Folder with website images<br>
+
+##### scripts/..
+<a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/scripts">```DiscerdProject/DiscerdWWW/scripts/..```</a><br>
+```livechat```<br>
+```liveonlinestatuses```(friends' statuses)<br>
 
 ##### styles/..
 <a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/styles">```DiscerdProject/DiscerdWWW/styles/..```</a><br>
-Folder with website stylesheets<br>
 
 ##### usersimgs/..
-<a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/usersimgs">
+<a href="https://github.com/Michallesss/DiscerdProject/tree/main/DiscerdWWW/usersimgs"></a><br>
 
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/aboutme.php">```DiscerdProject/DiscerdWWW/aboutme.php```</a><br>
 <a href="https://github.com/Michallesss/DiscerdProject/blob/main/DiscerdWWW/chat.php">```DiscerdProject/DiscerdWWW/chat.php```</a><br>
@@ -67,7 +72,8 @@ Folder with website stylesheets<br>
 ```dashboard``` (to do)<br>
 ```deleteaccount.php``` (to do)<br>
 ```deletemessage.php``` (still doesn't working for servers)<br>
-```discerd.php``` (css)<br>
+```discerd.php```<br>
+```forgotpass.php``` (to do)<br>
 ```forgotpass.php```<br>
 ```group.php```<br>
 ```index.php```<br>
@@ -84,5 +90,8 @@ Folder with website stylesheets<br>
 ```server.php``` (to do)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
-//and I can but I don't want to do: permission, emojis, roles.
-//Live changeing contnet with AJAX.!!! (chat, search, friends status)
+//and I can but I don't want to do: permission, emojis, roles, invites(using `invites` table).
+//Live changeing contnet with AJAX.!!! (send, friends' online status)
+//złe skalowanie się przy większej historii konwersjacji między użytkownikami
+//Pokazywanie użytkowników w danej konwersacji
+//Wyświetlanie konta użytkownika (gdzieś w rogu jak na dsc)

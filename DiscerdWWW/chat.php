@@ -66,9 +66,11 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/chat.css">
     <link rel="icon" href="imgs/icon.ico">
+
+    <script src="scripts/livechat.js"></script>
 </head>
 
-<body>
+<body onload="livechat();">
     <div class="banner">
         <a href="discerd.php"><img src="imgs/banner.png"></a>
         <ol>
@@ -92,34 +94,9 @@
             friends($accountID, $connect);
         ?>
     </div>
-    <div class="content">
-        <?php //chat
-        try {
-            if($result=$connect->query(sprintf("SELECT `message`.`messageID`, `account`.`accountID`, `account`.`nickname`, `message`.`message_date`, `message`.`senderID`, `message`.`recipientID`, `message`.`content` FROM `message` 
-            JOIN account ON account.accountID=message.senderID
-            WHERE (`message`.senderID='$accountID' AND `message`.recipientID='$id') OR (`message`.senderID='$id' AND `message`.recipientID='$accountID')
-            ORDER BY `messageID` ASC"))) {
-                while($row=$result->fetch_assoc()) {
-                    echo "<div class='message'>";
-                    echo "<a herf='profile.php?id=".$row['accountID']."'><b>".$row['nickname']."</b></a> <i><sup>".$row['message_date']."</sup></i>"; 
-                    if($accountID==$row['senderID']) {
-                        echo " <a href='actions/deletemessage.php?id=".$row['messageID']."&chat=".$id."'>Delete</a>";
-                    }
-                    echo "<br>".$row['content'];
-                    echo "</div>";
-                }
-            }
-            else {
-                throw new Exception($connect->error);
-            }
-        }
-        catch(Exception $e) {
-            echo "<i>Error:</i>";
-            echo "<div class='error'><b>Dev info:</b> ".$e."</div>";
-            $connect->close();
-        }
-        ?>
-    </div>
+    <input type="hidden" id="type" value="chat">
+    <input type="hidden" id="channel" value="<?php echo$id;?>">
+    <div class="content">Loading..</div>
     <div class="inputBar">
         <form action="actions/send.php" method="post">
             <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
