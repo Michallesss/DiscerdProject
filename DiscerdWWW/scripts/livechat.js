@@ -21,6 +21,11 @@ function livechat() { //updateing messages
     setTimeout("livechat();",1000);
 }
 
-function send() { //(async) sending messages
+/*function send() { //(async) sending messages
+    //async messsages sending
+    //https://youtu.be/7xjDgKMxiQo?t=2242
+}*/
 
-}
+/*function members() { 
+    //async getting info about chat/group/server members
+}*/

@@ -64,34 +64,24 @@ Folder with actions like uploading images<br>
 
 ## To Do List: (```to do```-all is to do; ```css```-only css is to do; ```php```-only php is to do; ```tocre```-to create; ```toinc```-to incluide)
 ```aboutme.php``` (to do)<br>
-```chat.php```<br>
-```connect.php```<br>
 ```createserver.php/group.php``` (tocre) (I don't know yet whether I will do it in one or two files)<br>
 ```createinvite.php``` (to do)<br>
 ```createrequest.php``` (css)<br>
 ```dashboard``` (to do)<br>
 ```deleteaccount.php``` (to do)<br>
-```deletemessage.php``` (still doesn't working for servers)<br>
-```discerd.php```<br>
 ```forgotpass.php``` (to do)<br>
-```forgotpass.php```<br>
-```group.php```<br>
-```index.php```<br>
 ```invite.php```(to do)<br>
-```logging.php```<br>
 ```login.php``` (css)<br>
-```logout.php```<br>
 ```profile.php``` (to do)<br>
-```registering.php```<br>
-```requestaction.php```<br>
 ```requests.php``` (css)<br>
-```search.php```<br>
-```send```<br>
 ```server.php``` (to do)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
-//and I can but I don't want to do: permission, emojis, roles, invites(using `invites` table).
-//Live changeing contnet with AJAX.!!! (send, friends' online status)
-//złe skalowanie się przy większej historii konwersjacji między użytkownikami
-//Pokazywanie użytkowników w danej konwersacji
+//js input validation.
+//Pokazywanie użytkowników w danej konwersacji(też async)
+//Live changeing contnet with AJAX.!!! (send/deleting mesages, accepting/dimmising invites, friends' online status(nie tylko na main stronie ale po prawej też), a właściwie wszystko co tylko się da trzeba zrobić async)
 //Wyświetlanie konta użytkownika (gdzieś w rogu jak na dsc)
+//powiadomienia (o wiadomościach, zapro do znaj)
+//sprawdzanie rzeczy pokroju: czy jesteś na danej grupie, serverze itd(podczas np wpisywania danych ręcznie do metody get a nie ma cię na jakimś serverze).
+//złe skalowanie się przy większej historii konwersjacji między użytkownikami
+//and I can but I don't want to do: permission, emojis, roles, invites(using `invites` table).

@@ -1,1 +1,1 @@
-//live friends' statuses (on discerd.php page)
+//live friends' statuses (on discerd.php and any other page with friendslist r-pannel)
