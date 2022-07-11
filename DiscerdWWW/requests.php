@@ -72,7 +72,7 @@
                             <form action='actions/requestaction.php' method='post'>
                                 <input type='submit' name='action' value='accept'>
                                 <input type='hidden' name='user' value='$id'>
-                                <input type='submit' name='action' value='dimiss'>
+                                <input type='submit' name='action' value='dismiss'>
                             </form>";
                         echo "</div>";
                     }
