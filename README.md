@@ -83,5 +83,5 @@ Folder with actions like uploading images<br>
 //Wyświetlanie konta użytkownika (gdzieś w rogu jak na dsc)
 //powiadomienia (o wiadomościach, zapro do znaj)
 //sprawdzanie rzeczy pokroju: czy jesteś na danej grupie, serverze itd(podczas np wpisywania danych ręcznie do metody get a nie ma cię na jakimś serverze).
-//złe skalowanie się przy większej historii konwersjacji między użytkownikami
+//złe skalowanie się przy większej historii konwersjacji między użytkownikami i chat pokazuje się od najstarszych wiadomości
 //and I can but I don't want to do: permission, emojis, roles, invites(using `invites` table).
