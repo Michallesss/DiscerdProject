@@ -68,6 +68,7 @@
     <link rel="icon" href="imgs/icon.ico">
 
     <script src="scripts/livechat.js"></script>
+    <script src="scripts/validation.js"></script>
 </head>
 
 <body onload="livechat();">
@@ -98,7 +99,7 @@
     <input type="hidden" id="channel" value="<?php echo$id;?>">
     <div class="content">Loading..</div>
     <div class="inputBar">
-        <form action="actions/send.php" method="post">
+        <form name="message" action="actions/send.php" method="post" onsubmit="return messages();">
             <input type="text" name="content" placeholder="Type here..." onfocus="this.placeholder=''" onblur="this.placeholder='Type here...'">
             <input type="hidden" value="<?php echo $id; ?>" name="chat">
             <input type="submit" value="send" name="submit">

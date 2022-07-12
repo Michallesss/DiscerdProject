@@ -59,6 +59,21 @@
             throw new Exception($connect->mysqli_connect_errno());
         }
 
+        if((!isset($_POST['content'])) || ($_POST['content']=="")) {
+            switch($option) {
+                case "chat":
+                    header('Location: ../chat.php?chat='.$chatid);
+                    break;
+                case "group":
+                    header('Location: ../group.php?group='.$groupid);
+                    break;
+                case "server":
+                    header('Location: ../server.php?server='.$serverid.'&channel='.$channelid);
+                    break;
+            }
+            exit();
+        }
+        
         $content=$_POST['content'];
         $time=time();
         $time=date ('Y-m-d H:i', $time);

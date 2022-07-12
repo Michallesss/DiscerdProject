@@ -13,7 +13,7 @@
     $is_good=false;
     if(isset($_POST['submit'])) {
         if((!isset($_POST['search'])) || ($_POST['search']=="")) {
-            $sr_error="<div class='friendscontent' style='text-align: center;'>Fill search field</div>";
+            $sr_error="Fill search field";
             $is_good=false;
         }
         else {
@@ -47,6 +47,8 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/discerd.css">
     <link rel="icon" href="imgs/icon.ico">
+
+    <script src="scripts/validation.js"></script>
 </head>
 
 <body>
@@ -55,7 +57,7 @@
         <ol>
             <?php
                 echo "<li>
-                <form action='' method='post'>
+                <form name='search' action='' method='post' onsubmit='return searches();'>
                     <input type='text' placeholder='Search..' onfocus='this.placeholder=``' onblur='this.placeholder=`Search..`' name='search'>
                     <input type='submit' value='search' name='submit'>
                 </form>
@@ -73,12 +75,16 @@
             friends($accountID, $connect);
         ?>
     </div>
-    <div class="content">
+    <div class="content" class="friendscontent">
+        <div class="error" id="sr_error" style="text-align: center;">
+            <?php
+                if(isset($sr_error)) {
+                    echo $sr_error;
+                    unset($sr_error);
+                }
+            ?>
+        </div>
         <?php
-            if(isset($sr_error)) {
-                echo "<div class='error'>".$sr_error."</div>";
-                unset($sr_error);
-            }
 
             if($is_good) {
                 try {

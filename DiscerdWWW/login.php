@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="styles/discerd.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" href="imgs/icon.ico">
+
+    <script src="scripts/validation.js"></script>
 </head>
 
 <body>
@@ -30,21 +32,26 @@
         </ol>
     </div>
     <div class="form">
-        <form action="logging.php" method="POST">
+        <form name="login" action="logging.php" method="POST" onsubmit="return log_in();">
             <input type="text" name="lg_login" value="<?php if(isset($_SESSION['lg_login'])) echo$_SESSION['lg_login']; ?>" placeholder="Login" onfocus="this.placeholder=''" onblur="this.placeholder='Login'">
-            <?php
-                if(isset($_SESSION['lg_login_error'])) {
-                    echo "<div class='error'>".$_SESSION['lg_login_error']."</div>";
-                    unset($_SESSION['lg_login_error']);
-                }?>
+            <div class="error" id="lg_login">
+                <?php
+                    if(isset($_SESSION['lg_login_error'])) {
+                        echo $_SESSION['lg_login_error'];
+                        unset($_SESSION['lg_login_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="password" name="lg_password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'"><br>
-            <?php 
-                if(isset($_SESSION['lg_password_error'])) {
-                    echo "<div class='error'>".$_SESSION['lg_password_error']."</div>";
-                    unset($_SESSION['lg_password_error']);
-                }
-            ?>
+            <div class="error" id="lg_password">
+                <?php 
+                    if(isset($_SESSION['lg_password_error'])) {
+                        echo $_SESSION['lg_password_error'];
+                        unset($_SESSION['lg_password_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <a href="forgotpass.php">forgot password</a><br>
             <!--====-->

@@ -77,7 +77,6 @@ Folder with actions like uploading images<br>
 ```server.php``` (to do)<br>
 ```signup.php``` (css)<br>
 ```upload.php``` (php)<br>
-//js input validation.
 //Pokazywanie użytkowników w danej konwersacji(też async)
 //Live changeing contnet with AJAX.!!! (send/deleting mesages, accepting/dimmising invites, friends' online status(nie tylko na main stronie ale po prawej też), a właściwie wszystko co tylko się da trzeba zrobić async)
 //Wyświetlanie konta użytkownika (gdzieś w rogu jak na dsc)

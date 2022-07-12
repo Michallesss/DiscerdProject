@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="styles/discerd.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="icon" href="imgs/icon.ico">
+
+    <script src="scripts/validation.js"></script>
 </head>
 
 <body>
@@ -30,48 +32,66 @@
         </ol>
     </div>
     <div class="form">
-        <form action="registering.php" method="POST">
+        <form name="signup" action="registering.php" method="POST" onsubmit="return sign_up();">
             <input type="login" name="rg_login" value="<?php if(isset($_SESSION['rg_login'])) echo$_SESSION['rg_login']; ?>" placeholder="Login*" onfocus="this.placeholder=''" onblur="this.placeholder='Login*'">
-            <?php 
-                if(isset($_SESSION['rg_login_error'])) {
-                    echo "<div class='error'>".$_SESSION['rg_login_error']."</div>";
-                    unset($_SESSION['rg_login_error']);
-                }?>
+            <div class="error" id="rg_login">
+                <?php 
+                    if(isset($_SESSION['rg_login_error'])) {
+                        echo $_SESSION['rg_login_error'];
+                        unset($_SESSION['rg_login_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="nick" name="rg_nick"  value="<?php if(isset($_SESSION['rg_nick'])) echo$_SESSION['rg_nick']; ?>" placeholder="Nickname" onfocus="this.placeholder=''" onblur="this.placeholder='Nickname'">
-            <?php 
-                if(isset($_SESSION['rg_nick_error'])) {
-                    echo "<div class='error'>".$_SESSION['rg_nick_error']."</div>";
-                    unset($_SESSION['rg_nick_error']);
-                }?>
+            <div class="error" id="rg_nick">
+                <?php 
+                    if(isset($_SESSION['rg_nick_error'])) {
+                        echo $_SESSION['rg_nick_error'];
+                        unset($_SESSION['rg_nick_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="tel" name="rg_phone" value="<?php if(isset($_SESSION['rg_phone'])) echo$_SESSION['rg_phone']; ?>" placeholder="Phone number" onfocus="this.placeholder=''" onblur="this.placeholder='Phone number'">
-            <?php 
-                if(isset($_SESSION['rg_phone_error'])) {
-                    echo "<div class='error'>".$_SESSION['rg_phone_error']."</div>";
-                    unset($_SESSION['rg_phone_error']);
-                }?>
+            <div class="error" id="rg_phone">
+                <?php 
+                    if(isset($_SESSION['rg_phone_error'])) {
+                        echo $_SESSION['rg_phone_error'];
+                        unset($_SESSION['rg_phone_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="email" name="rg_email" value="<?php if(isset($_SESSION['rg_email'])) echo$_SESSION['rg_email']; ?>" placeholder="E-mail" onfocus="this.placeholder=''" onblur="this.placeholder='E-mail'">
-            <?php 
-                if(isset($_SESSION['rg_email_error'])) {
-                    echo "<div class='error'>".$_SESSION['rg_email_error']."</div>";
-                    unset($_SESSION['rg_email_error']);
-                }?>
+            <div class="error" id="rg_email">
+                <?php 
+                    if(isset($_SESSION['rg_email_error'])) {
+                        echo $_SESSION['rg_email_error'];
+                        unset($_SESSION['rg_email_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="password" name="rg_password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder='Password*'">
-            <?php 
-                if(isset($_SESSION['rg_password_error'])) {
-                    echo "<div class='error'>".$_SESSION['rg_password_error']."</div>";
-                    unset($_SESSION['rg_password_error']);
-                }?>
+            <div class="error" id="rg_password">
+                <?php 
+                    if(isset($_SESSION['rg_password_error'])) {
+                        echo $_SESSION['rg_password_error'];
+                        unset($_SESSION['rg_password_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="password" name="rg_password2" placeholder="Repeat Password*" onfocus="this.placeholder=''" onblur="this.placeholder='Repeat Password*'"><br>
-            <?php 
-                if(isset($_SESSION['rg_password2_error'])) {
-                    echo "<div class='error'>".$_SESSION['rg_password2_error']."</div>";
-                    unset($_SESSION['rg_password2_error']);
-                }?>
+            <div class="error" id="rg_password2">
+                <?php 
+                    if(isset($_SESSION['rg_password2_error'])) {
+                        echo $_SESSION['rg_password2_error'];
+                        unset($_SESSION['rg_password2_error']);
+                    }
+                ?>
+            </div>
             <!--====-->
             <input type="submit" value="Sign Up">
         </form>

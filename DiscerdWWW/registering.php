@@ -19,7 +19,7 @@
     }
     if(!ctype_alnum($login)) {
         $is_good=false;
-        $_SESSION['rg_login_error']="Nick can only consist liter and numbers";
+        $_SESSION['rg_login_error']="Login can only consist liter and numbers";
     }
     if($login=="") {
         $is_good=false;
@@ -29,6 +29,10 @@
 
     //Email checking:
     $email = $_POST['rg_email'];
+    if(strlen($email)>30) {
+        $is_good=false;
+        $_SESSION['rg_email_error']="Email must have max 30 letters";
+    }
     //$email2 = filter_var($email, FILTER_VALIDATE_EMAIL);
     //$email = htmlentities($email, ENT_QUOTES, "UTF-8");
 
@@ -39,10 +43,26 @@
     if($nick=="") {
         $nick=$login;
     }
-
+    else if(!ctype_alnum($nick)) {
+        $is_good=false;
+        $_SESSION['rg_nick_error']="Nick can only consist liter and numbers";
+    }
+    if(strlen($nick)>30) {
+        $is_good=false;
+        $_SESSION['rg_nick_error']="Nick must have max 20 letters";
+    }
+    
 
     //Phone checking:
     $phone = $_POST['rg_phone'];
+    if(($phone!="") && ($phone!=(int) $phone)) {
+        $is_good=false;
+        $_SESSION['rg_phone_error']="Phone can only consist numbers";
+    }
+    if(strlen($phone)>9) {
+        $is_good=false;
+        $_SESSION['rg_phone_error']="Phone must have max 9 numbers";
+    }
     //$phone = htmlentities($phone, ENT_QUOTES, "UTF-8");
 
 
